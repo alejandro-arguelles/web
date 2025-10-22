@@ -8,14 +8,11 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --line:#2b2f39;
+      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --place:#a9abb1; --line:#2b2f39;
       --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --orange:#ffbf7a;
     }
 
@@ -31,8 +28,8 @@
 
     /* Top navigation */
     .top-nav{
-      width:100%; display:flex; justify-content:center; gap:32px; padding:20px 0;
-      border-bottom:0px solid var(--line); background:transparent;
+      width:100%; display:flex; justify-content:center; gap:32px;
+      padding:20px 0; border-bottom:0px solid var(--line); background:transparent;
     }
     .top-nav a{
       font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
@@ -75,7 +72,8 @@
 
     /* Project blocks */
     .project{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start; margin:18px 0 28px;
+      display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start;
+      margin:28px 0 54px;   /* más espacio entre proyectos */
     }
     @media (max-width: 900px){ .project{ grid-template-columns:1fr; } }
 
@@ -86,19 +84,68 @@
     .link{ color:#c1bfff; text-decoration:none; border-bottom:1px dashed rgba(193,191,255,.4); }
     .link:hover{ color:#fff; border-bottom-color:transparent; }
 
-    /* Image styles */
+    /* Media styles */
     figure{ margin:0; }
-    .img-row{
-      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    .img-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width: 560px){ .img-row{ grid-template-columns:1fr; } }
+
+    /* Driverless: dos fotos cuadradas y pequeñas */
+    .resp.square{
+      aspect-ratio: 1 / 1;      /* cuadradas */
+      width:100%;
+      object-fit:cover;
+      object-position:center;
+      border-radius:10px; border:1px solid var(--line); display:block;
+      max-width:240px;           /* controla tamaño */
+      margin:0 auto;             /* centra cada imagen en su celda */
     }
-    @media (max-width: 740px){ .img-row{ grid-template-columns:1fr; } }
 
     img.resp{ width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
-    .caption{ font-size:13px; color:var(--muted); margin-top:6px; }
+    .caption{ font-size:13px; color:var(--muted); margin-top:6px; text-align:center; }
 
-    /* Little pill meta (if needed) */
-    .meta{ margin-top:6px; font-size:13px; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap; }
-    .pill{ border:1px solid var(--line); padding:2px 8px; border-radius:999px; }
+    /* Vídeo (NN visualizer) más pequeño */
+    .resp.vid{
+      max-width:350px; width:100%;
+      border-radius:10px; border:1px solid var(--line); display:block;
+    }
+
+    /* Diagrama del refactorer pequeño */
+    .resp.diag{ max-width:240px; width:100%; display:block; margin:auto; }
+    .figure-center{ display:flex; flex-direction:column; align-items:center; }
+    .figure-center .caption{ text-align:center; max-width:300px; }
+
+    /* Borsuk video: recorte para quitar barras laterales */
+    .vid-crop{
+      width:100%;
+      max-width:520px;
+      height:260px;
+      border-radius:10px; border:1px solid var(--line);
+      overflow:hidden; margin:0 auto;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .vid-crop video{ width:100%; height:100%; object-fit:cover; }
+
+    /* Footer */
+    .logos-footer{
+      width:100%; background:#20232a;
+      border-top:1px solid var(--line);
+      margin-top:32px; padding:26px 0;
+    }
+    .logos-container{
+      max-width:1100px; margin:0 auto; padding:0 24px;
+      display:flex; flex-wrap:wrap; justify-content:center;
+      align-items:center; gap:20px 60px;
+    }
+    .logos-container a{
+      display:inline-flex; opacity:.85;
+      transition:opacity .2s ease, transform .2s ease;
+      will-change:transform;
+    }
+    .logos-container a:hover{ opacity:1; transform:translateY(-3px); }
+    .logos-container img{
+      height:40px; width:auto;
+      filter:grayscale(100%) contrast(1.1) brightness(1.05);
+    }
   </style>
 </head>
 
@@ -146,10 +193,10 @@
     <section id="projects">
       <h2>Projects</h2>
 
-      <!-- Driverless project -->
+      <!-- 1) Driverless -->
       <div class="project">
         <div>
-          <h3>Driverless Formula Student — Estimation & Sensor Fusion</h3>
+          <h3>Chief & Scrum Master — Driverless Deep Learning Estimation</h3>
           <p class="muted">
             Coordination of a driverless team (Supaero hub). Development of estimation algorithms with
             Extended Kalman Filters and neural networks. Fusion of <strong>IMU, GPS, LiDAR</strong> and integration with
@@ -171,18 +218,18 @@
         <div>
           <div class="img-row">
             <figure>
-              <img class="resp" src="media/tlseracing/team4.jpg" alt="TLS’e Racing team — group photo">
+              <img class="resp square" src="media/tlseracing/team4.jpg" alt="TLS’e Racing team — group photo">
               <figcaption class="caption">TLS’e Racing — team</figcaption>
             </figure>
             <figure>
-              <img class="resp" src="media/tlseracing/car.jpeg" alt="Driverless electric formula car render">
+              <img class="resp square" src="media/tlseracing/car.jpeg" alt="Driverless electric formula car">
               <figcaption class="caption">Driverless EV</figcaption>
             </figure>
           </div>
         </div>
       </div>
 
-      <!-- Internship / Infotel project -->
+      <!-- 2) Automatic Code Refactoring -->
       <div class="project">
         <div>
           <h3>Automatic Code Refactoring with AI — Internship (Infotel)</h3>
@@ -195,9 +242,53 @@
           </p>
         </div>
         <div>
-          <figure>
-            <img class="resp" src="media/infotel/diagram.png" alt="System diagram of AI-driven code refactoring pipeline">
+          <figure class="figure-center">
+            <img class="resp diag" src="media/infotel/diagram.png" alt="System diagram of AI-driven code refactoring pipeline">
             <figcaption class="caption">High-level system diagram</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 3) NN Visualizer -->
+      <div class="project">
+        <div>
+          <h3>Neural Network Decision Boundary Visualizer</h3>
+          <p class="muted">
+            Given a neural network mapping from ℝⁿ to ℝ (typically for binary classification), this tool evaluates the model on a 2D slice
+            of the input space ℝⁿ and generates a heatmap that reveals decision boundaries, confidence regions, and internal structure.
+          </p>
+          <p>
+            <a class="link" href="https://github.com/alejandro-arguelles/NN-visualizer" target="_blank" rel="noopener">
+              GitHub — alejandro-arguelles/NN-visualizer →
+            </a>
+          </p>
+        </div>
+        <div>
+          <figure class="figure-center">
+            <video class="resp vid" src="media/nnvisualizer/heatmap.mp4" autoplay muted loop playsinline controls></video>
+            <figcaption class="caption">2D slice heatmap showing decision boundary & confidence.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 4) Borsuk–Ulam -->
+      <div class="project">
+        <div>
+          <h3>Borsuk–Ulam Theorem — Notes & Visualizations</h3>
+          <p class="muted">
+            Concise exposition and geometric proof sketches of the Borsuk–Ulam theorem, with applications (e.g., Brouwer fixed-point and the
+            necklace splitting problem). Includes a homotopy visualization on the cube.
+          </p>
+          <p class="muted" style="margin-top:8px;">
+            <a class="link" href="media/borsuk/BorsukUlam.pdf" target="_blank" rel="noopener">Read the Report (PDF) →</a>
+          </p>
+        </div>
+        <div>
+          <figure class="figure-center">
+            <div class="vid-crop">
+              <video src="media/borsuk/homotopy.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <figcaption class="caption">Homotopy on the cube.</figcaption>
           </figure>
         </div>
       </div>
