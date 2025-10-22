@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alejandro Argüelles — CV</title>
+  <title>Alejandro Argüelles — Home</title>
 
-  <!-- Fonts: JetBrains Mono (titles) + Inter (body) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -15,51 +15,37 @@
 
   <style>
     :root{
-      --bg:#181a1f;         /* page background */
-      --fg:#e9e9ee;         /* main text */
-      --muted:#b8bcc7;      /* secondary text */
-      --line:#2b2f39;       /* separators */
-      --accent1:#7a5cff;    /* purple for gradient */
-      --accent2:#51d1ffdc;  /* cyan/blue for section headers */
-      --accent3:#c07bff;    /* gradient tint */
-      --orange:#ffbf7a;     /* subtle orange highlight */
+      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7;--place:#a9abb1; --line:#2b2f39;
+      --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --orange:#ffbf7a;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-      line-height:1.45;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.45; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
 
-    /* layout container directly on the page */
-    .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding:48px 24px 72px;
-    }
+    .wrap{max-width:1100px; margin:0 auto; padding:48px 24px 72px;}
 
-    /* the old card is now transparent */
-    .panel{
-      background:transparent;   /* <— no platform */
-      border-radius:0;
-      padding:0;
-      box-shadow:none;
+    /* ===== Top navigation ===== */
+    .top-nav{
+      width:100%; display:flex; justify-content:center; gap:32px;
+      padding:20px 0; border-bottom:0px solid var(--line);
+      background:transparent;
     }
+    .top-nav a{
+      font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
+      color:#fff; text-decoration:none; transition:color .25s ease;
+    }
+    .top-nav a:hover{ color:var(--accent2); }
 
-    /* Header */
+    /* ===== Header ===== */
     header{
-      display:grid;
-      grid-template-columns:1.25fr .6fr;
-      gap:28px;
-      align-items:center;
-      padding-bottom:24px;
-      border-bottom:1px solid var(--line);
+      display:grid; grid-template-columns:1.25fr .6fr;
+      gap:28px; align-items:center;
+      padding-bottom:24px; border-bottom:1px solid var(--line);
     }
     @media (max-width: 860px){
       header{grid-template-columns:1fr}
@@ -67,86 +53,86 @@
     }
 
     .name{
-      font-family:"JetBrains Mono", monospace;
-      font-weight:700;
-      font-size: clamp(28px, 4.2vw, 44px);
-      letter-spacing:.5px;
+      font-family:"JetBrains Mono", monospace; font-weight:700;
+      font-size:clamp(28px,4.2vw,30px); letter-spacing:.5px;
     }
-    .subtitle{
-      margin-top:6px;
-      font-size:15px;
-      color:var(--muted);
-      font-family:"JetBrains Mono", monospace;
-    }
-
+    .subtitle{ margin-top:6px; font-size:15px; color:var(--muted); font-family:"JetBrains Mono", monospace; }
     .gradient{
-      display:inline-block;
-      font-weight:800;
-      font-size: clamp(28px, 4.8vw, 48px);
-      line-height:1.1;
+      display:inline-block; font-weight:800;
+      font-size:clamp(28px,4.8vw,30px); line-height:1.1;
       margin-top:8px;
-      background:linear-gradient(90deg, var(--accent1), var(--accent3) 40%, var(--accent2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-
     .school{ margin-top:4px; font-weight:600; color:#c1bfff; }
 
-    .contacts{
-      margin-top:18px;
-      display:flex; flex-wrap:wrap; gap:14px 20px;
-      font-size:14px; color:var(--muted);
+    .intro{
+      margin-top:10px; color:var(--muted); font-size:15px;
+      max-width:700px; line-height:1.5;
     }
-    .contacts a{color:var(--muted); text-decoration:none}
-    .contacts a:hover{color:#ffffff}
+
+    .contacts{ margin-top:18px; display:flex; flex-wrap:wrap;
+      gap:14px 20px; font-size:14px; color:var(--muted);
+    }
+    .contacts a{ color:var(--muted); text-decoration:none }
+    .contacts a:hover{ color:#fff }
 
     .avatar{
-      justify-self:end;
-      width:min(220px, 40vw);
-      aspect-ratio:1/1;
-      border-radius:12px;
-      overflow:hidden;
-      border:1px solid var(--line);           /* sutil borde para separar del fondo */
-      box-shadow:0 4px 18px rgba(0,0,0,.25);  /* sombra ligera */
-      background:#111;
+      justify-self:end; width:min(220px, 40vw); aspect-ratio:1/1;
+      border-radius:8%; overflow:hidden; border:2px solid var(--line);
+      background:transparent; box-shadow:none;
     }
-    .avatar img{ width:100%; height:100%; object-fit:cover; filter:grayscale(100%) contrast(1.05); }
-
-    hr.sep{
-      border:0; height:1px; background:var(--line);
-      margin:28px 0 10px; display:none;      /* ya no necesitamos esta línea global */
+    .avatar img{ width:100%; height:100%; object-fit:cover;
+      border-radius:8%; filter:grayscale(100%) contrast(1.05);
     }
 
-    /* Sections */
-    section{margin-top:28px; padding-top:18px; border-top:1px dashed var(--line);}
-    section:first-of-type{border-top:none; padding-top:0; margin-top:24px;}
+    /* ===== Sections ===== */
+    section{ margin-top:28px; padding-top:18px; border-top:1px dashed var(--line); }
+    section:first-of-type{ border-top:none; padding-top:0; margin-top:24px; }
 
     h2{
-      font-family:"JetBrains Mono", monospace;
-      font-weight:700;              /* bold */
-      font-size:20px;
-      letter-spacing:.14em;
-      color:var(--accent2);
-      margin:0 0 14px;
-      position:relative;
+      font-family:"JetBrains Mono", monospace; font-weight:700;
+      font-size:20px; letter-spacing:.14em; color:var(--accent2);
+      margin:0 0 14px; position:relative;
     }
-    
     h2::after{
-      content:"";
-      position:absolute; left:0; bottom:-8px;
-      width:100%; height:1px; background:linear-gradient(90deg,var(--accent2),transparent 60%);
+      content:""; position:absolute; left:0; bottom:-8px;
+      width:100%; height:1px;
+      background:linear-gradient(90deg,var(--accent2),transparent 60%);
       opacity:.4;
     }
 
-    .item{margin:14px 0 10px}
-    .role{ font-weight:900; font-size:20px; }
-    @media (max-width:860px){
-    .role{ font-size:18px; }
-  }
+    .item{ margin:10px 0 6px; }
+    .role{ font-weight:900; font-size:18px; }
+    .place{ font-size:13px; color:var(--place); margin-left:8px; white-space:nowrap; }
+    /* evita cortes feos entre título y escuela/año */
 
-    .place{ font-size:13px; color:var(--muted); margin-left:8px; }
+    /* ===== Meta pills (Experience) ===== */
+    .meta{ margin-top:6px; font-size:13px; color:var(--muted);
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .meta .pill{
+      border:1px solid var(--line); padding:2px 8px;
+      border-radius:999px;
+    }
 
+    /* ===== Two-column layout for experience + education ===== */
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    @media (max-width: 900px){
+      .two-cols { grid-template-columns: 1fr; }
+    }
+
+    /* Quitar “puntitos”/línea superior sólo en Education dentro del grid */
+    #education{ border-top:none; padding-top:0; }
+    /* Igualar brillo/contraste del texto en Education con Experience */
+    #education .role, #education .place, #education p { color: var(--fg); }
+    #education p { color: var(--muted); margin-top:6px; }
+
+    /* ===== Clean list for Awards (exactly like extended_cv) ===== */
     ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
     ul.clean > li{
       position:relative; padding-left:18px; margin:8px 0; color:var(--fg);
@@ -156,161 +142,150 @@
       font-size:20px; line-height:1; color:#ffffff; opacity:.9;
     }
 
-    .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; }
-    @media (max-width: 860px){ .grid-2{grid-template-columns:1fr} }
-
-    .tags{
-      display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:6px 16px; margin-top:10px; font-size:14px; color:#dfe3ee;
+    /* ===== Footer ===== */
+    .logos-footer{
+      width:100%; background:#20232a;
+      border-top:1px solid var(--line);
+      margin-top:32px; padding:26px 0;
     }
-    @media (max-width: 640px){ .tags{grid-template-columns:1fr} }
-    .tags .t{display:flex; gap:10px}
-    .dot{width:6px; height:6px; background:#dfe3ee; border-radius:50%; margin-top:8px; opacity:.9}
-
-    /* Subtle highlight */
-    .hi{ color:var(--orange); font-weight:700; }
-    .tags .t.hi .dot{ background:var(--orange); }
-
-    .muted{color:var(--muted)}
-    .foot{
-      margin-top:32px; padding-top:14px; border-top:1px solid var(--line);
-      text-align:center; color:var(--muted); font-size:13px;
+    .logos-container{
+      max-width:1100px; margin:0 auto; padding:0 24px;
+      display:flex; flex-wrap:wrap; justify-content:center;
+      align-items:center; gap:20px 60px;
+    }
+    .logos-container a{
+      display:inline-flex; opacity:.85;
+      transition:opacity .2s ease, transform .2s ease;
+      will-change:transform;
+    }
+    .logos-container a:hover{ opacity:1; transform:translateY(-3px); }
+    .logos-container img{
+      height:40px; width:auto;
+      filter:grayscale(100%) contrast(1.1) brightness(1.05);
     }
   </style>
 </head>
+
 <body>
+  <!-- Top navigation -->
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="main_projects.html">Main Projects</a>
+    <a href="extended_cv.html">Extended CV</a>
+  </nav>
+
   <div class="wrap">
-    <div class="panel">
+    <header>
+      <div>
+        <div class="name">Alejandro ARGÜELLES</div>
+        <div class="subtitle">MS in mathematics and AI at</div>
+        <div class="gradient">MVA — Mathematics, Vision and Learning</div>
+        <div class="school">ENS Paris Saclay</div>
 
-      <header>
-        <div>
-          <div class="name">Alejandro ARGÜELLES</div>
-          <div class="subtitle">MS in mathematics and AI at</div>
-          <div class="gradient">MVA Mathematics Vision Learning</div>
-          <div class="school">ENS Paris Saclay</div>
+        <p class="intro">
+          I am currently pursuing the <strong>MVA</strong> program at ENS Paris-Saclay and seeking research internship and PhD opportunities in mathematics and artificial intelligence.
+          Interests include <strong>Reinforcement Learning</strong>, <strong>Interpretability</strong>, and <strong>Representation Learning</strong>.
+        </p>
 
-          <div class="contacts">
-            <span>Email — <a href="mailto:alejandro.ar.tj@gmail.com">alejandro.ar.tj@gmail.com</a></span>
-            <span>LinkedIn — <a href="https://www.linkedin.com/in/alejandroarguelless/">/in/alejandroarguelless</a></span>
-            <span>Mobile — <a href="tel:+33766209165">+33 07 66 20 91 65</a></span>
-          </div>
+        <div class="contacts">
+          <span>Email — <a href="mailto:alejandro.ar.tj@gmail.com">alejandro.ar.tj@gmail.com</a></span>
+          <span>LinkedIn — <a href="https://www.linkedin.com/in/alejandroarguelless/">/in/alejandroarguelless</a></span>
+          <span>Mobile — <a href="tel:+33766209165">+33 07 66 20 91 65</a></span>
         </div>
+      </div>
 
-        <div class="avatar">
-          <img src="white4.jpg" alt="Profile photo of Alejandro">
-        </div>
-      </header>
+      <div class="avatar">
+        <img src="media/cara/whitealpha.png" alt="Profile photo of Alejandro">
+      </div>
+    </header>
 
-      <!-- Experience -->
+    <!-- ===== Experience + Education side by side ===== -->
+    <div class="two-cols">
       <section id="experience">
         <h2>Experience</h2>
 
         <div class="item">
-          <div class="role">Chief of Deep Learning Estimation at Autonomous Racing Car
-            <span class="place">TLS’e Racing Formula Student, 24/25</span>
+          <div class="role">Chief of Deep Learning Estimation — Driverless FS
+            <span class="place">TLS’e Racing, 24/25</span>
           </div>
-          <ul class="clean">
-            <li>Coordination of a Driverless Formula Student team based at Supaero (meetings, planning, guidance) using scrum methodology for the development of estimation algorithms using extended Kalman filters and neural networks. Fusion of sensor data (IMU, GPS, LiDAR) and system integration with computer vision and path planning modules.</li>
-          </ul>
+          <div class="meta">
+            <span class="pill">Autonomous driving</span>
+            <span class="pill">EKF & Deep Learning Estimation</span>
+            <span class="pill">Sensor Fusion (IMU/GPS/LiDAR)</span>
+            <span class="pill">Scrum & Integration</span>
+          </div>
         </div>
 
         <div class="item">
-          <div class="role">Automatic code refactoring with AI internship
-            <span class="place">Infotel Consulting, Mar 25 – Aug 25</span>
+          <div class="role">Automatic Code Refactoring with AI — Intern
+            <span class="place">Infotel Consulting, Mar–Aug 25</span>
           </div>
-          <ul class="clean">
-            <li>Developed, end-to-end, a private VS Code extension for automatic code refactoring using AI.</li>
-            <li>Applied LoRA fine-tuning for LLMs, RAG, multi-agent systems, and diffusion models for synthetic data generation.</li>
-            <li>Improved results of a published paper on God Class detection, raising F1 from 0.53→0.58.</li>
-          </ul>
+          <div class="meta">
+            <span class="pill">VS Code Extension</span>
+            <span class="pill">LoRA Fine tuning • RAG • Multi-Agent</span>
+            <span class="pill">Improved Paper: F1 ↑ 0.53 → 0.58 (God Class Detection)</span>
+          </div>
         </div>
 
         <div class="item">
           <div class="role">Student Consultant
             <span class="place">Upsilon Student Tech Consulting, 2023</span>
           </div>
-          <ul class="clean">
-            <li>Creation of communication strategies and attractive designs to engage potential clients.</li>
-          </ul>
+          <div class="meta">
+            <span class="pill">Communication Strategy</span>
+            <span class="pill">Design</span>
+          </div>
         </div>
       </section>
 
-      <!-- Education -->
       <section id="education">
         <h2>Education</h2>
-        <div class="grid-2">
-          <div>
-            <div class="role">Master — MVA Mathematics, Vision, Learning
-              <span class="place">ENS Paris Saclay, Sep 25 – Apr 26</span>
-            </div>
-            <div class="tags">
-              <div class="t"><span class="dot"></span>Reinforcement Learning</div>
-              <div class="t"><span class="dot"></span>Statistical Learning</div>
-              <div class="t"><span class="dot"></span>Theoretical Foundations of Deep Learning</div>
-              <div class="t"><span class="dot"></span>Geometry Processing</div>
-              <div class="t"><span class="dot"></span>Topological & Geometrical Data Analysis</div>
-              <div class="t"><span class="dot"></span>Multimodal Explainable AI</div>
-              <div class="t"><span class="dot"></span>Diffusion Models for Generative AI</div>
-              <div class="t"><span class="dot"></span>Optimal Transport</div>
-              <div class="t"><span class="dot"></span>Big Random Matrices</div>
-              <div class="t"><span class="dot"></span>LLMs for Code & Proof</div>
-            </div>
-          </div>
 
-          <div>
-            <div class="role">Master — Mathematics & Computer Science for AI
-              <span class="place">Toulouse University, Sep 24 – Mar 25</span>
-            </div>
-            <div class="tags">
-              <div class="t hi"><span class="dot"></span>1st of the promotion (1/9)</div>
-              <div class="t"><span class="dot"></span>Statistics</div>
-              <div class="t"><span class="dot"></span>Advanced Probabilities</div>
-              <div class="t"><span class="dot"></span>Convex Optimization</div>
-              <div class="t"><span class="dot"></span>Deep Learning</div>
-              <div class="t"><span class="dot"></span>Information Retrieval</div>
-              <div class="t"><span class="dot"></span>Advanced Algorithms</div>
-              <div class="t"><span class="dot"></span>Language Theory (code)</div>
-              <div class="t"><span class="dot"></span>Random Simulation</div>
-              <div class="t"><span class="dot"></span>Signal Processing</div>
-            </div>
-          </div>
-
-          <div>
-            <div class="role">Degree — Pure Mathematics
-              <span class="place">Toulouse University, 2020 – 2023</span>
-            </div>
-            <ul class="clean">
-              <li><strong class="hi">1st of the promotion (1/93)</strong> in the first year.</li>
-            </ul>
+        <div class="item">
+          <div class="role">Master — MVA Mathematics, Vision & Learning
+            <span class="place">ENS Paris-Saclay, Sep 25 – Apr 26</span>
           </div>
         </div>
+
+        <div class="item">
+          <div class="role">Master — Mathematics & Computer Science for AI
+            <span class="place">Toulouse University, Sep 24 – Mar 25</span>
+          </div>
+          <p class="edu-note">1st of the promotion (1/9)</p>
+        </div>
+
+        <div class="item">
+          <div class="role">Degree — Pure Mathematics
+            <span class="place">Toulouse University, 2020 – 2023</span>
+          </div>
+          <p class="edu-note">1st of the promotion (1/93) in the first year</p>
+        </div>
       </section>
+    </div>
 
-      <!-- Skills -->
-      <section id="skills">
-        <h2>Skills</h2>
-        <ul class="clean">
-          <li><strong>Programming Languages:</strong> Python, Coq, OCaml, R, C, C++, JavaScript</li>
-          <li><strong>Libraries:</strong> TensorFlow, PyTorch, Scikit-learn, NumPy, Pandas, Matplotlib, SCIP, Hugging Face, LangChain, GraphChain</li>
-          <li><strong>Soft Skills:</strong> Strong team player, good communication skills, problem-solver, adaptability, highly consistent</li>
-        </ul>
-      </section>
+    <!-- ===== Awards (exactly like extended_cv) ===== -->
+    <section id="awards">
+      <h2>Awards & Others</h2>
+      <ul class="clean">
+        <li><strong>ANITI Scholarship:</strong> Awarded by the Institute of Natural and Artificial Intelligence in Toulouse for the master’s degree.</li>
+        <li><strong>AVENIR Scholarship:</strong> Dialogue Association (2020), granted to only six students in Spain per year.</li>
+        <li><span class="hi"><strong>Finalist:</strong> 56th Spanish Mathematical Olympiad (2020, Phase I).</span></li>
+        <li><strong>Complementary Interests:</strong> Cybersecurity, Cryptography, Neuroscience.</li>
+        <li><strong>Hobbies:</strong> Filmmaking, Painting, Photography, Pole Vaulting, Gymnastics, Rubik’s Cube (BL blindfolded).</li>
+        <li><strong>Languages:</strong> English C2 (Cambridge), French B2 (Alliance Française), Spanish (Native).</li>
+      </ul>
+    </section>
+  </div>
 
-      <!-- Awards -->
-      <section id="awards">
-        <h2>Awards and others</h2>
-        <ul class="clean">
-          <li><strong>ANITI Scholarship:</strong> Awarded by the Institute of Natural and Artificial Intelligence in Toulouse for the master’s degree.</li>
-          <li><strong>AVENIR Scholarship:</strong> Dialogue Association (2020), awarded to only six people in Spain each year.</li>
-          <li><span class="hi"><strong>Finalist:</strong> First phase of the 56th Spanish Mathematical Olympiad (2020).</span></li>
-          <li><strong>Complementary Interests:</strong> Cybersecurity, cryptography, neuroscience.</li>
-          <li><strong>Hobbies:</strong> Filmmaking, painting, photography, pole vaulting, gymnastics, Rubik’s cube blindfolded.</li>
-          <li><strong>Languages:</strong> English C2 (Cambridge), French B2 (Alliance Française), Spanish (Native).</li>
-        </ul>
-      </section>
-
-      <div class="foot">“Simplicity is the ultimate sophistication.” — Da Vinci</div>
-
+  <!-- ===== Footer logos ===== -->
+  <div class="logos-footer" role="contentinfo" aria-label="Affiliations and partners">
+    <div class="logos-container">
+      <a href="https://ens-paris-saclay.fr/" target="_blank" rel="noopener"><img src="media/logos/ensalpha.png" alt="ENS Paris-Saclay"></a>
+      <a href="https://www.master-mva.com/" target="_blank" rel="noopener"><img src="media/logos/mvaalpha.png" alt="Master MVA"></a>
+      <a href="https://www.univ-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/utoulousealpha.png" alt="Université de Toulouse"></a>
+      <a href="https://tlseracing.fr/" target="_blank" rel="noopener"><img src="media/logos/tlsealpha.png" alt="TLS’e Racing"></a>
+      <a href="https://www.upsilon-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/upsialpha.png" alt="Upsilon Student Tech Consulting"></a>
+      <a href="https://www.infotel.com/" target="_blank" rel="noopener"><img src="media/logos/infotelalpha.png" alt="Infotel Consulting"></a>
     </div>
   </div>
 </body>

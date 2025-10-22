@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Main Projects — Alejandro Argüelles</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root{
+      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --line:#2b2f39;
+      --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --orange:#ffbf7a;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.45; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+
+    .wrap{max-width:1100px; margin:0 auto; padding:48px 24px 72px;}
+
+    /* Top navigation */
+    .top-nav{
+      width:100%; display:flex; justify-content:center; gap:32px; padding:20px 0;
+      border-bottom:0px solid var(--line); background:transparent;
+    }
+    .top-nav a{
+      font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
+      color:#fff; text-decoration:none; transition:color .25s ease;
+    }
+    .top-nav a:hover{ color:var(--accent2); }
+
+    /* Gradient page title */
+    .gradient-title{
+      font-family:"JetBrains Mono",monospace;
+      font-weight:800; font-size:clamp(30px,5vw,42px);
+      margin-top:32px; margin-bottom:12px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+
+    /* Section headings */
+    h2{
+      font-family:"JetBrains Mono", monospace; font-weight:700;
+      font-size:20px; letter-spacing:.14em; color:var(--accent2);
+      margin:18px 0 14px; position:relative;
+    }
+    h2::after{
+      content:""; position:absolute; left:0; bottom:-8px; width:100%; height:1px;
+      background:linear-gradient(90deg,var(--accent2),transparent 60%); opacity:.4;
+    }
+
+    section{ margin-top:28px; padding-top:18px; border-top:1px dashed var(--line); }
+    section:first-of-type{ border-top:none; padding-top:0; }
+
+    /* Clean list with custom bullets */
+    ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
+    ul.clean > li{
+      position:relative; padding-left:18px; margin:8px 0; color:var(--fg);
+    }
+    ul.clean > li::before{
+      content:"•"; position:absolute; left:0; top:-1px;
+      font-size:20px; line-height:1; color:#ffffff; opacity:.9;
+    }
+
+    /* Project blocks */
+    .project{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start; margin:18px 0 28px;
+    }
+    @media (max-width: 900px){ .project{ grid-template-columns:1fr; } }
+
+    .project h3{
+      margin:0 0 8px; font-size:18px; font-weight:800; font-family:"JetBrains Mono",monospace;
+    }
+    .muted{ color:var(--muted); }
+    .link{ color:#c1bfff; text-decoration:none; border-bottom:1px dashed rgba(193,191,255,.4); }
+    .link:hover{ color:#fff; border-bottom-color:transparent; }
+
+    /* Image styles */
+    figure{ margin:0; }
+    .img-row{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    }
+    @media (max-width: 740px){ .img-row{ grid-template-columns:1fr; } }
+
+    img.resp{ width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
+    .caption{ font-size:13px; color:var(--muted); margin-top:6px; }
+
+    /* Little pill meta (if needed) */
+    .meta{ margin-top:6px; font-size:13px; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap; }
+    .pill{ border:1px solid var(--line); padding:2px 8px; border-radius:999px; }
+  </style>
+</head>
+
+<body>
+  <!-- Top navigation -->
+  <nav class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="main_projects.html">Main Projects</a>
+    <a href="extended_cv.html">Extended CV</a>
+  </nav>
+
+  <div class="wrap">
+    <div class="gradient-title">Main Projects</div>
+
+    <!-- Currently Working On -->
+    <section id="current">
+      <h2>Currently Working On</h2>
+      <p class="muted" style="max-width:900px;">
+        Analysing and reproducing selected research papers — exploring alternative ideas and datasets, with a focus on applying
+        <em>neural manifold</em> methods to Reinforcement Learning.
+      </p>
+      <ul class="clean">
+        <li>
+          <a class="link" href="https://arxiv.org/abs/2212.10414" target="_blank" rel="noopener">
+            Quantifying Extrinsic Curvature in Neural Manifolds
+          </a>
+          — applying the framework to <strong>neural manifolds in Reinforcement Learning</strong> (policy/value networks; dynamics across training).
+        </li>
+        <li>
+          <a class="link" href="https://arxiv.org/abs/2105.04852" target="_blank" rel="noopener">
+            Estimation and Quantization of Expected Persistence Diagrams
+          </a>
+          — robust topological summaries and uncertainty-aware estimators for learned representations.
+        </li>
+        <li>
+          <a class="link" href="https://arxiv.org/abs/1802.06552" target="_blank" rel="noopener">
+            Are Generative Classifiers More Robust to Adversarial Attacks?
+          </a>
+          — benchmarking generative vs. discriminative classifiers under distribution shift and adversarial perturbations.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- Driverless project -->
+      <div class="project">
+        <div>
+          <h3>Driverless Formula Student — Estimation & Sensor Fusion</h3>
+          <p class="muted">
+            Coordination of a driverless team (Supaero hub). Development of estimation algorithms with
+            Extended Kalman Filters and neural networks. Fusion of <strong>IMU, GPS, LiDAR</strong> and integration with
+            computer vision and path planning modules.
+          </p>
+          <p class="muted">
+            We competed at <strong>FSUK 2025</strong> (static events), achieving <strong>4th overall</strong> in the
+            <em>Cost & Manufacturing</em> event.
+          </p>
+          <div class="meta">
+            <span class="pill">EKF & NN Estimation</span>
+            <span class="pill">Sensor Fusion</span>
+            <span class="pill">System Integration</span>
+          </div>
+          <p style="margin-top:10px;">
+            <a class="link" href="https://tlseracing.fr/" target="_blank" rel="noopener">Visit TLS’e Racing website →</a>
+          </p>
+        </div>
+        <div>
+          <div class="img-row">
+            <figure>
+              <img class="resp" src="media/tlseracing/team4.jpg" alt="TLS’e Racing team — group photo">
+              <figcaption class="caption">TLS’e Racing — team</figcaption>
+            </figure>
+            <figure>
+              <img class="resp" src="media/tlseracing/car.jpeg" alt="Driverless electric formula car render">
+              <figcaption class="caption">Driverless EV</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internship / Infotel project -->
+      <div class="project">
+        <div>
+          <h3>Automatic Code Refactoring with AI — Internship (Infotel)</h3>
+          <p class="muted">
+            End-to-end development of a private VS Code extension for automated refactoring using LLMs
+            (LoRA fine-tuning, RAG pipelines, multi-agent collaboration) and diffusion-based synthetic data.
+          </p>
+          <p style="margin-top:10px;">
+            <a class="link" href="media/infotel/rapport.pdf" target="_blank" rel="noopener">Open internship report (PDF) →</a>
+          </p>
+        </div>
+        <div>
+          <figure>
+            <img class="resp" src="media/infotel/diagram.png" alt="System diagram of AI-driven code refactoring pipeline">
+            <figcaption class="caption">High-level system diagram</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer logos -->
+  <div class="logos-footer" role="contentinfo" aria-label="Affiliations and partners">
+    <div class="logos-container">
+      <a href="https://ens-paris-saclay.fr/" target="_blank" rel="noopener"><img src="media/logos/ensalpha.png" alt="ENS Paris-Saclay"></a>
+      <a href="https://www.master-mva.com/" target="_blank" rel="noopener"><img src="media/logos/mvaalpha.png" alt="Master MVA"></a>
+      <a href="https://www.univ-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/utoulousealpha.png" alt="Université de Toulouse"></a>
+      <a href="https://tlseracing.fr/" target="_blank" rel="noopener"><img src="media/logos/tlsealpha.png" alt="TLS’e Racing"></a>
+      <a href="https://www.upsilon-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/upsialpha.png" alt="Upsilon Student Tech Consulting"></a>
+      <a href="https://www.infotel.com/" target="_blank" rel="noopener"><img src="media/logos/infotelalpha.png" alt="Infotel Consulting"></a>
+    </div>
+  </div>
+</body>
+</html>
