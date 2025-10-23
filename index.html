@@ -47,10 +47,23 @@
       gap:28px; align-items:center;
       padding-bottom:24px; border-bottom:1px solid var(--line);
     }
+    
     @media (max-width: 860px){
-      header{grid-template-columns:1fr}
-      .avatar{justify-self:flex-start}
+    header {
+      grid-template-columns: 1fr;
+      text-align: center; /* centra el contenido textual también si quieres */
     }
+
+    .avatar {
+      justify-self: center; /* centra la foto horizontalmente */
+      margin-top: 20px; /* opcional: añade un poco de espacio respecto al texto */
+    }
+
+    .avatar img {
+      border-radius: 50%; /* opcional: queda mejor en móvil */
+    }
+  }
+
 
     .name{
       font-family:"JetBrains Mono", monospace; font-weight:700;
