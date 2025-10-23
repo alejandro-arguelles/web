@@ -183,6 +183,24 @@
       }
       .logos-container img{ height:36px; } /* un pelín más pequeño en móvil */
     }
+
+        /* ===== Fix centrado avatar SOLO en móvil ===== */
+    @media (max-width: 860px){
+      header{
+        grid-template-columns: 1fr;        /* ya lo tienes, por si acaso */
+        justify-items: center;             /* centra TODOS los items en el grid */
+      }
+
+      .avatar{
+        justify-self: center !important;   /* por si hay alguna regla previa */
+        margin: 20px auto 0 !important;    /* auto horizontal = centrado sólido */
+      }
+
+      .avatar img{
+        display: block;                    /* evita pequeños desajustes inline */
+      }
+    }
+
   </style>
 </head>
 
