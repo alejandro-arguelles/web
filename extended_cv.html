@@ -145,6 +145,25 @@
       height:40px; width:auto;
       filter:grayscale(100%) contrast(1.1) brightness(1.05);
     }
+
+    /* ===== Mobile-only tweaks ===== */
+    /* 1) Footer logos: 2 columnas x 3 filas SOLO en móvil */
+    @media (max-width: 600px){
+      .logos-container{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        gap:16px;
+        justify-items:center; /* centra cada celda */
+        align-items:center;
+        padding:0 24px;
+      }
+      .logos-container a{
+        width:100%;
+        display:flex; /* asegura centrado del <img> dentro de la celda */
+        justify-content:center;
+      }
+      .logos-container img{ height:36px; } /* un pelín más pequeño en móvil */
+    }
   </style>
 </head>
 
