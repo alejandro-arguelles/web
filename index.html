@@ -15,7 +15,7 @@
 
   <style>
     :root{
-      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7;--place:#a9abb1; --line:#2b2f39;
+      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --place:#a9abb1; --line:#2b2f39;
       --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --orange:#ffbf7a;
     }
 
@@ -47,23 +47,10 @@
       gap:28px; align-items:center;
       padding-bottom:24px; border-bottom:1px solid var(--line);
     }
-
     @media (max-width: 860px){
-    header {
-      grid-template-columns: 1fr;
-      text-align: left; /* centra el contenido textual también si quieres */
+      header{ grid-template-columns:1fr; }
+      .avatar{ justify-self:center; margin-top:20px; } /* centrado SOLO en móvil */
     }
-
-    .avatar {
-      justify-self: center; /* centra la foto horizontalmente */
-      margin-top: 20px; /* opcional: añade un poco de espacio respecto al texto */
-    }
-
-    .avatar img {
-      border-radius: 50%; /* opcional: queda mejor en móvil */
-    }
-  }
-
 
     .name{
       font-family:"JetBrains Mono", monospace; font-weight:700;
@@ -95,8 +82,10 @@
       border-radius:8%; overflow:hidden; border:2px solid var(--line);
       background:transparent; box-shadow:none;
     }
-    .avatar img{ width:100%; height:100%; object-fit:cover;
-      border-radius:8%; filter:grayscale(100%) contrast(1.05);
+    .avatar img{
+      width:100%; height:100%; object-fit:cover;
+      border-radius:50%; /* circular en todo momento */
+      filter:grayscale(100%) contrast(1.05);
     }
 
     /* ===== Sections ===== */
@@ -118,7 +107,6 @@
     .item{ margin:10px 0 6px; }
     .role{ font-weight:900; font-size:18px; }
     .place{ font-size:13px; color:var(--place); margin-left:8px; white-space:nowrap; }
-    /* evita cortes feos entre título y escuela/año */
 
     /* ===== Meta pills (Experience) ===== */
     .meta{ margin-top:6px; font-size:13px; color:var(--muted);
@@ -145,7 +133,7 @@
     #education .role, #education .place, #education p { color: var(--fg); }
     #education p { color: var(--muted); margin-top:6px; }
 
-    /* ===== Clean list for Awards (exactly like extended_cv) ===== */
+    /* ===== Clean list for Awards ===== */
     ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
     ul.clean > li{
       position:relative; padding-left:18px; margin:8px 0; color:var(--fg);
@@ -192,7 +180,7 @@
       <div>
         <div class="name">Alejandro ARGÜELLES</div>
         <div class="subtitle">MS in <b>Mathematics</b> and <b>AI</b> at</div>
-        <div class="gradient">MVA — Mathematics, Vision and Learning</div>
+        <div class="gradient">MVA — Mathematics Vision Learning</div>
         <div class="school">ENS Paris Saclay</div>
 
         <p class="intro">
@@ -276,7 +264,7 @@
       </section>
     </div>
 
-    <!-- ===== Awards (exactly like extended_cv) ===== -->
+    <!-- ===== Awards ===== -->
     <section id="awards">
       <h2>Awards & Others</h2>
       <ul class="clean">
