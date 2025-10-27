@@ -54,14 +54,23 @@
 
     /* Título con degradado — FIX de hairlines al imprimir */
     .gradient{
-      display:inline-block; font-weight:900; font-family:"JetBrains Mono", monospace;
-      font-size:20px; line-height:1.05; margin-top:2px;
+      display:inline-block;
+      font-weight:900;
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size:20px;
+      line-height:1.05;
+      margin-top:2px;
       background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
-      -webkit-background-clip:text; background-clip:text;
-      -webkit-text-fill-color:transparent; color:transparent;
-      text-decoration:none; filter:none;
-      backface-visibility:hidden; transform:translateZ(0); /* evita artefactos finos */
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      color:transparent;
+      text-decoration:none;
+      filter:none;
+      backface-visibility:hidden;
+      transform:translateZ(0);
     }
+
 
     .school{ margin-top:1px; font-weight:600; color:#c1bfff; font-size:12px; }
     .intro{ margin-top:4px; color:var(--muted); font-size:12px; max-width:700px; }
