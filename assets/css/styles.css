@@ -27,13 +27,13 @@ body{
 @media (max-width: 699px){
   .top-nav {
     flex-wrap: wrap;             /* Permite que los enlaces salten de línea */
-    gap: 20px;                   /* Menor espacio entre ellos */
-    padding: 14px 20px;          /* Márgenes laterales */
+    gap: 17px;                   /* Menor espacio entre ellos */
+    padding: 20px 20px;          /* Márgenes laterales */
     justify-content: center;     /* Centra todo el grupo */
   }
  
   .top-nav a {
-    font-size: 10px;             /* Texto más pequeño */
+    font-size: 12px;             /* Texto más pequeño */
     text-align: center;          /* Centra el texto de cada link */
   }
 }
