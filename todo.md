@@ -1,1 +1,2 @@
 - a lo mejor ponerle splines en plan extende cv centrado debajod e un spline y lo mismo con extended cv
+- poner el header del movil en dos lineas y dos columnas
