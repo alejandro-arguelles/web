@@ -196,7 +196,7 @@ img.resp{ width:100%; height:auto; border-radius:10px; border:1px solid var(--li
 .media-block .embed,
 .media-block img {
   width: 100%;
-  max-width: 500px;      /* ↓ más pequeño que antes (antes 900px) */
+  max-width: 350px;      /* ↓ más pequeño que antes (antes 900px) */
   border: 1px solid var(--line);
   border-radius: 10px;
   display: block;
