@@ -8,222 +8,26 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --place:#a9abb1; --line:#2b2f39;
-      --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --orange:#ffbf7a;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height:1.45; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-
-    .wrap{max-width:1100px; margin:0 auto; padding:48px 24px 72px;}
-
-    /* ===== Top navigation ===== */
-    .top-nav{
-      width:100%; display:flex; justify-content:center; gap:32px;
-      padding:20px 0; border-bottom:0px solid var(--line);
-      background:transparent;
-    }
-    .top-nav a{
-      font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
-      color:#fff; text-decoration:none; transition:color .25s ease;
-    }
-    .top-nav a:hover{ color:var(--accent2); }
-
-    /* ===== Header ===== */
-    header{
-      display:grid; grid-template-columns:1.25fr .6fr;
-      gap:28px; align-items:center;
-      padding-bottom:24px; border-bottom:1px solid var(--line);
-    }
-    @media (max-width: 860px){
-      header{ grid-template-columns:1fr; }
-      .avatar{ justify-self:center; margin-top:20px; } /* centrado SOLO en móvil */
-    }
-
-    .name{
-      font-family:"JetBrains Mono", monospace; font-weight:700;
-      font-size:clamp(28px,4.2vw,30px); letter-spacing:.5px;
-    }
-    .subtitle{ margin-top:6px; font-size:15px; color:var(--muted); font-family:"JetBrains Mono", monospace; }
-    .gradient{
-      display:inline-block; font-weight:800;
-      font-size:clamp(28px,4.8vw,30px); line-height:1.1;
-      margin-top:8px;
-      background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .school{ margin-top:4px; font-weight:600; color:#c1bfff; }
-
-    .intro{
-      margin-top:10px; color:var(--muted); font-size:15px;
-      max-width:700px; line-height:1.5;
-    }
-
-    .contacts{ margin-top:18px; display:flex; flex-wrap:wrap;
-      gap:14px 20px; font-size:14px; color:var(--muted);
-    }
-    .contacts a{ color:var(--muted); text-decoration:none }
-    .contacts a:hover{ color:#fff }
-
-    .avatar{
-      justify-self:end; width:min(220px, 40vw); aspect-ratio:1/1;
-      border-radius:10%; overflow:hidden; border:2px solid var(--line);
-      background:transparent; box-shadow:none;
-    }
-    .avatar img{
-      width:100%; height:100%; object-fit:cover;
-      border-radius:10%; /* mantiene la redondez actual */
-      filter:grayscale(100%) contrast(1.05);
-    }
-
-    /* ===== Sections ===== */
-    section{ margin-top:28px; padding-top:18px; border-top:1px dashed var(--line); }
-    section:first-of-type{ border-top:none; padding-top:0; margin-top:24px; }
-
-    h2{
-      font-family:"JetBrains Mono", monospace; font-weight:700;
-      font-size:20px; letter-spacing:.14em; color:var(--accent2);
-      margin:0 0 14px; position:relative;
-    }
-    h2::after{
-      content:""; position:absolute; left:0; bottom:-8px;
-      width:100%; height:1px;
-      background:linear-gradient(90deg,var(--accent2),transparent 60%);
-      opacity:.4;
-    }
-
-    .item{ margin:10px 0 6px; }
-    .role{ font-weight:900; font-size:18px; }
-    .place{ font-size:13px; color:var(--place); margin-left:8px; white-space:nowrap; }
-
-    /* ===== Meta pills (Experience) ===== */
-    .meta{ margin-top:6px; font-size:13px; color:var(--muted);
-      display:flex; gap:12px; flex-wrap:wrap;
-    }
-    .meta .pill{
-      border:1px solid var(--line); padding:2px 8px;
-      border-radius:999px;
-    }
-
-    /* ===== Two-column layout for experience + education ===== */
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-    @media (max-width: 900px){
-      .two-cols { grid-template-columns: 1fr; }
-    }
-
-    /* Quitar “puntitos”/línea superior sólo en Education dentro del grid */
-    #education{ border-top:none; padding-top:0; }
-    /* Igualar brillo/contraste del texto en Education con Experience */
-    #education .role, #education .place, #education p { color: var(--fg); }
-    #education p { color: var(--muted); margin-top:6px; }
-
-    /* ===== Clean list for Awards ===== */
-    ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
-    ul.clean > li{
-      position:relative; padding-left:18px; margin:8px 0; color:var(--fg);
-    }
-    ul.clean > li::before{
-      content:"•"; position:absolute; left:0; top:-1px;
-      font-size:20px; line-height:1; color:#ffffff; opacity:.9;
-    }
-
-    /* ===== Footer ===== */
-    .logos-footer{
-      width:100%; background:#20232a;
-      border-top:1px solid var(--line);
-      margin-top:32px; padding:26px 0;
-    }
-    .logos-container{
-      max-width:1100px; margin:0 auto; padding:0 24px;
-      display:flex; flex-wrap:wrap; justify-content:center;
-      align-items:center; gap:20px 60px;
-    }
-    .logos-container a{
-      display:inline-flex; opacity:.85;
-      transition:opacity .2s ease, transform .2s ease;
-      will-change:transform;
-    }
-    .logos-container a:hover{ opacity:1; transform:translateY(-3px); }
-    .logos-container img{
-      height:40px; width:auto;
-      filter:grayscale(100%) contrast(1.1) brightness(1.05);
-    }
-
-    /* ===== Mobile-only tweaks ===== */
-    /* 1) Footer logos: 2 columnas x 3 filas SOLO en móvil */
-    @media (max-width: 600px){
-      .logos-container{
-        display:grid;
-        grid-template-columns:repeat(2, minmax(0,1fr));
-        gap:16px;
-        justify-items:center; /* centra cada celda */
-        align-items:center;
-        padding:0 24px;
-      }
-      .logos-container a{
-        width:100%;
-        display:flex; /* asegura centrado del <img> dentro de la celda */
-        justify-content:center;
-      }
-      .logos-container img{ height:36px; } /* un pelín más pequeño en móvil */
-    }
-
-        /* ===== Fix centrado avatar SOLO en móvil ===== */
-    @media (max-width: 860px){
-      header{
-        grid-template-columns: 1fr;        /* ya lo tienes, por si acaso */
-        justify-items: center;             /* centra TODOS los items en el grid */
-      }
-
-      .avatar{
-        justify-self: center !important;   /* por si hay alguna regla previa */
-        margin: 20px auto 0 !important;    /* auto horizontal = centrado sólido */
-      }
-
-      .avatar img{
-        display: block;                    /* evita pequeños desajustes inline */
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/includes.js" defer></script>
 </head>
-
 <body>
-  <!-- Top navigation -->
-  <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="main_projects.html">Main Projects</a>
-    <a href="extended_cv.html">Extended CV</a>
-  </nav>
+  <div data-include="components/header.html"></div>
 
   <div class="wrap">
     <header>
       <div>
         <div class="name">Alejandro ARGÜELLES</div>
         <div class="subtitle">MS in <b>Mathematics</b> and <b>AI</b> at</div>
-        <div class="gradient">MVA — Mathematics Vision Learning</div>
+        <div class="gradient">Mathematics Vision Learning</div>
         <div class="school">ENS Paris Saclay</div>
 
         <p class="intro">
           I am currently pursuing the <strong>MVA</strong> program at ENS Paris-Saclay and seeking research internship and PhD opportunities in mathematics and artificial intelligence.
-          Interests include <strong>Reinforcement Learning</strong>, <strong>Interpretability</strong>, and <strong>Representation Learning</strong>. (Availability April 2026 ->)
-        </p> 
+          Interests include <strong>Reinforcement Learning</strong>, <strong>Interpretability</strong>, and <strong>Representation Learning</strong>. (Availability April 2026 →)
+        </p>
 
         <div class="contacts">
           <span>Email — <a href="mailto:alejandro.ar.tj@gmail.com">alejandro.ar.tj@gmail.com</a></span>
@@ -237,7 +41,6 @@
       </div>
     </header>
 
-    <!-- ===== Experience + Education side by side ===== -->
     <div class="two-cols">
       <section id="experience">
         <h2>Experience</h2>
@@ -301,7 +104,6 @@
       </section>
     </div>
 
-    <!-- ===== Awards ===== -->
     <section id="awards">
       <h2>Awards & Others</h2>
       <ul class="clean">
@@ -315,16 +117,6 @@
     </section>
   </div>
 
-  <!-- ===== Footer logos ===== -->
-  <div class="logos-footer" role="contentinfo" aria-label="Affiliations and partners">
-    <div class="logos-container">
-      <a href="https://ens-paris-saclay.fr/" target="_blank" rel="noopener"><img src="media/logos/ensalpha.png" alt="ENS Paris-Saclay"></a>
-      <a href="https://www.master-mva.com/" target="_blank" rel="noopener"><img src="media/logos/mvaalpha.png" alt="Master MVA"></a>
-      <a href="https://www.univ-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/utoulousealpha.png" alt="Université de Toulouse"></a>
-      <a href="https://tlseracing.fr/" target="_blank" rel="noopener"><img src="media/logos/tlsealpha.png" alt="TLS’e Racing"></a>
-      <a href="https://www.upsilon-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/upsialpha.png" alt="Upsilon Student Tech Consulting"></a>
-      <a href="https://www.infotel.com/" target="_blank" rel="noopener"><img src="media/logos/infotelalpha.png" alt="Infotel Consulting"></a>
-    </div>
-  </div>
+  <div data-include="components/footer.html"></div>
 </body>
 </html>

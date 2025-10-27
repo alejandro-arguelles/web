@@ -1,0 +1,209 @@
+:root{
+  --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --place:#a9abb1; --line:#2b2f39;
+  --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --accent4:#a590ff; --orange:#ffbf7a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height:1.45; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+
+.wrap{max-width:1100px; margin:0 auto; padding:48px 24px 72px;}
+
+/* ===== Top navigation ===== */
+.top-nav{
+  width:100%; display:flex; justify-content:center; gap:32px;
+  padding:20px 0; border-bottom:0px solid var(--line); background:transparent;
+}
+.top-nav a{
+  font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
+  color:#fff; text-decoration:none; transition:color .25s ease;
+}
+.top-nav a:hover{ color:var(--accent2); }
+.top-nav a.active{ color:var(--accent4); border-bottom:0px dashed rgba(145,120,255,.5); }
+
+/* ===== Titles & sections ===== */
+/* Headline (JetBrains Mono) — mantiene el degradado */
+/* --- Títulos grandes (en JetBrains Mono) --- */
+.gradient-title {
+  display:inline-block;
+  font-family:"JetBrains Mono", monospace;
+  font-weight:700;
+  letter-spacing:.01em;
+  font-size:clamp(28px,4.8vw,30px);
+  line-height:1.1;
+  margin-top:8px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* --- Texto con degradado dentro del index (en Inter) --- */
+.gradient {
+  display:inline-block;
+  font-family:"Inter", sans-serif;  /* ← aquí mantenemos Inter */
+  font-weight:800;
+  font-size:clamp(28px,4.8vw,30px);
+  line-height:1.1;
+  margin-top:8px;
+  background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+h2{
+  font-family:"JetBrains Mono", monospace; font-weight:700;
+  font-size:20px; letter-spacing:.14em; color:var(--accent2);
+  margin:0 0 14px; position:relative;
+}
+h2::after{
+  content:""; position:absolute; left:0; bottom:-8px; width:100%; height:1px;
+  background:linear-gradient(90deg,var(--accent2),transparent 60%); opacity:.4;
+}
+section{ margin-top:28px; padding-top:18px; border-top:0px dashed var(--line); }
+section:first-of-type{ border-top:none; padding-top:0; }
+
+.muted{ color:var(--muted); }
+.link{ color:#c1bfff; text-decoration:none; border-bottom:1px dashed rgba(193,191,255,.4); }
+.link:hover{ color:#fff; border-bottom-color:transparent; }
+
+/* ===== Common content patterns ===== */
+.item{ margin:10px 0 6px; }
+.role{ font-weight:900; font-size:18px; }
+.place{ font-size:13px; color:var(--place); margin-left:8px; white-space:nowrap; }
+ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
+ul.clean > li{ position:relative; padding-left:18px; margin:8px 0; color:var(--fg); }
+ul.clean > li::before{ content:"•"; position:absolute; left:0; top:-1px; font-size:20px; line-height:1; color:#ffffff; opacity:.9; }
+
+.meta{ margin-top:6px; font-size:13px; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap; }
+.meta .pill{ border:1px solid var(--line); padding:2px 8px; border-radius:999px; }
+
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start; /* Alinea ambas columnas arriba */
+}
+/* Anula el margen superior en las secciones dentro del grid */
+.two-cols section {
+  margin-top: 1;
+  padding-top: 0;
+}
+
+@media (max-width: 900px){ .two-cols { grid-template-columns: 1fr; } }
+
+/* ===== Home (index) specifics ===== */
+.name{ font-family:"JetBrains Mono", monospace; font-weight:700; font-size:clamp(28px,4.2vw,30px); letter-spacing:.5px; }
+.subtitle{ margin-top:6px; font-size:15px; color:var(--muted); font-family:"JetBrains Mono", monospace; }
+.school{ margin-top:4px; font-weight:600; color:#c1bfff; }
+.intro{ margin-top:10px; color:var(--muted); font-size:15px; max-width:700px; line-height:1.5; }
+.contacts{ margin-top:18px; display:flex; flex-wrap:wrap; gap:14px 20px; font-size:14px; color:var(--muted); }
+.contacts a{ color:var(--muted); text-decoration:none }
+.contacts a:hover{ color:#fff }
+header{
+  display:grid; grid-template-columns:1.25fr .6fr;
+  gap:28px; align-items:center; padding-bottom:24px; border-bottom:1px solid var(--line);
+}
+@media (max-width: 860px){
+  header{ grid-template-columns:1fr; justify-items:center; }
+}
+.avatar{ justify-self:end; width:min(220px, 40vw); aspect-ratio:1/1; border-radius:10%; overflow:hidden; border:2px solid var(--line); }
+.avatar img{ width:100%; height:100%; object-fit:cover; border-radius:10%; filter:grayscale(100%) contrast(1.05); }
+@media (max-width: 860px){
+  .avatar{ justify-self:center !important; margin:20px auto 0 !important; }
+  .avatar img{ display:block; }
+}
+
+/* ===== Main Projects specifics ===== */
+.project{ display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start; margin:28px 0 54px; }
+@media (max-width: 900px){ .project{ grid-template-columns:1fr; } }
+.project h3{ margin:0 0 8px; font-size:18px; font-weight:700; letter-spacing:0; line-height:1.25; color:var(--fg); }
+figure{ margin:0; }
+.img-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+@media (max-width: 560px){ .img-row{ grid-template-columns:1fr; } }
+.resp.square{ aspect-ratio: 1 / 1; width:100%; object-fit:cover; object-position:center; border-radius:10px; border:1px solid var(--line); display:block; max-width:240px; margin:0 auto; }
+img.resp{ width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
+.caption{ font-size:13px; color:var(--muted); margin-top:6px; text-align:center; }
+.resp.vid{ max-width:350px; width:100%; border-radius:10px; border:1px solid var(--line); display:block; }
+.resp.diag{ max-width:240px; width:100%; display:block; margin:auto; }
+.figure-center{ display:flex; flex-direction:column; align-items:center; }
+.vid-crop{ width:100%; max-width:520px; height:260px; border-radius:10px; border:1px solid var(--line); overflow:hidden; margin:0 auto; display:flex; align-items:center; justify-content:center; }
+.vid-crop video{ width:100%; height:100%; object-fit:cover; }
+
+/* ===== Extended CV specifics ===== */
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:18px 28px; }
+@media (max-width:860px){ .grid-2{ grid-template-columns:1fr } }
+.tags{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 16px; margin-top:10px; font-size:14px; color:#dfe3ee; }
+.tags .t{ display:flex; gap:10px }
+.dot{ width:6px; height:6px; background:#dfe3ee; border-radius:50%; margin-top:8px; opacity:.9 }
+.hi{ color:#c4b7ff; font-weight:700; }
+.tags .t.hi .dot{ background:#c4b7ff; }
+
+/* ===== Footer logos ===== */
+.logos-footer{
+  width:100%; background:#20232a;
+  border-top:1px solid var(--line);
+  margin-top:32px; padding:26px 0;
+}
+.logos-container{
+  max-width:1100px; margin:0 auto; padding:0 24px;
+  display:flex; flex-wrap:wrap; justify-content:center;
+  align-items:center; gap:20px 60px;
+}
+.logos-container a{
+  display:inline-flex; opacity:.85;
+  transition:opacity .2s ease, transform .2s ease; will-change:transform;
+}
+.logos-container a:hover{ opacity:1; transform:translateY(-3px); }
+.logos-container img{ height:40px; width:auto; filter:grayscale(100%) contrast(1.1) brightness(1.05); }
+
+/* ===== Mobile footer grid ===== */
+@media (max-width: 600px){
+  .logos-container{
+    display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:16px; justify-items:center; align-items:center; padding:0 24px;
+  }
+  .logos-container a{ width:100%; display:flex; justify-content:center; }
+  .logos-container img{ height:36px; }
+}
+
+
+/* Responsive embeds (YouTube / Vimeo) */
+.embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+/* ===== Short Films: una columna + medios centrados y más pequeños ===== */
+.project.onecol {
+  grid-template-columns: 1fr; /* debajo de la descripción */
+}
+
+.media-block {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.media-block .embed,
+.media-block img {
+  width: 100%;
+  max-width: 500px;      /* ↓ más pequeño que antes (antes 900px) */
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: block;
+}
+
+@media (max-width: 560px){
+  .media-block .embed,
+  .media-block img {
+    max-width: 100%;
+  }
+}

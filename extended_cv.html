@@ -8,177 +8,17 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#181a1f;
-      --fg:#e9e9ee;
-      --muted:#b8bcc7;
-      --line:#2b2f39;
-      --accent1:#7a5cff;
-      --accent2:#9178ff;
-      --accent3:#c07bff;
-      --orange:#c4b7ff;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      line-height:1.45;
-    }
-
-    .wrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding:48px 24px 72px;
-    }
-
-    /* ===== Top navigation ===== */
-    .top-nav {
-      width:100%;
-      display:flex;
-      justify-content:center;
-      gap:32px;
-      padding:20px 0;
-      border-bottom:0px solid var(--line);
-      background:transparent;
-    }
-    .top-nav a{
-      font-family:"JetBrains Mono",monospace;
-      font-weight:600;
-      font-size:15px;
-      color:#ffffff;
-      text-decoration:none;
-      transition:color .25s ease;
-    }
-    .top-nav a:hover{ color:var(--accent2); }
-
-    /* ===== Gradient title ===== */
-    .gradient-title{
-      font-family:"JetBrains Mono",monospace;
-      font-weight:800;
-      font-size:clamp(30px,5vw,42px);
-      margin-top:32px;
-      margin-bottom:12px;
-      background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    h2{
-      font-family:"JetBrains Mono", monospace;
-      font-weight:700;
-      font-size:20px;
-      letter-spacing:.14em;
-      color:var(--accent2);
-      margin:0 0 14px;
-      position:relative;
-    }
-    h2::after{
-      content:"";
-      position:absolute; left:0; bottom:-8px;
-      width:100%; height:1px; background:linear-gradient(90deg,var(--accent2),transparent 60%);
-      opacity:.4;
-    }
-
-    section{margin-top:28px; padding-top:18px; border-top:1px dashed var(--line);}
-    section:first-of-type{border-top:none; padding-top:0;}
-
-    .item{margin:14px 0 10px}
-    .role{ font-weight:900; font-size:20px; }
-    .place{ font-size:13px; color:var(--muted); margin-left:8px; }
-    ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
-    ul.clean > li{position:relative; padding-left:18px; margin:8px 0; color:var(--fg);}
-    ul.clean > li::before{
-      content:"•"; position:absolute; left:0; top:-1px;
-      font-size:20px; line-height:1; color:#ffffff; opacity:.9;
-    }
-
-    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px 28px;}
-    @media (max-width:860px){.grid-2{grid-template-columns:1fr}}
-    .tags{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 16px; margin-top:10px; font-size:14px; color:#dfe3ee;}
-    .tags .t{display:flex; gap:10px}
-    .dot{width:6px; height:6px; background:#dfe3ee; border-radius:50%; margin-top:8px; opacity:.9}
-    .hi{ color:var(--orange); font-weight:700; }
-    .tags .t.hi .dot{ background:var(--orange); }
-    .muted{color:var(--muted)}
-
-    .logos-footer{
-      width:100%;
-      background:#20232a;
-      border-top:1px solid var(--line);
-      margin-top:32px;
-      padding:26px 0;
-    }
-    .logos-container{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 24px;
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      align-items:center;
-      gap:20px 60px;
-    }
-    .logos-container a{
-      display:inline-flex;
-      opacity:.85;
-      transition:opacity .2s ease, transform .2s ease;
-      will-change:transform;
-    }
-    .logos-container a:hover{
-      opacity:1;
-      transform:translateY(-3px);
-    }
-    .logos-container img{
-      height:40px; width:auto;
-      filter:grayscale(100%) contrast(1.1) brightness(1.05);
-    }
-
-    /* ===== Mobile-only tweaks ===== */
-    /* 1) Footer logos: 2 columnas x 3 filas SOLO en móvil */
-    @media (max-width: 600px){
-      .logos-container{
-        display:grid;
-        grid-template-columns:repeat(2, minmax(0,1fr));
-        gap:16px;
-        justify-items:center; /* centra cada celda */
-        align-items:center;
-        padding:0 24px;
-      }
-      .logos-container a{
-        width:100%;
-        display:flex; /* asegura centrado del <img> dentro de la celda */
-        justify-content:center;
-      }
-      .logos-container img{ height:36px; } /* un pelín más pequeño en móvil */
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/includes.js" defer></script>
 </head>
-
 <body>
-  <!-- Top navigation -->
-  <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="main_projects.html">Main Projects</a>
-    <a href="extended_cv.html">Extended CV</a>
-  </nav>
+  <div data-include="components/header.html"></div>
 
   <div class="wrap">
     <div class="gradient-title">Extended CV</div>
 
-    <!-- === Experience === -->
     <section id="experience">
       <h2>Experience</h2>
 
@@ -187,8 +27,8 @@
           <span class="place">TLS’e Racing Formula Student, 24/25</span>
         </div>
         <ul class="clean">
-          <li>Coordination of a Driverless Formula Student team based at Supaero using scrum methodology for the development of estimation algorithms with Extended Kalman Filters and neural networks.</li>
-          <li>Fusion of IMU, GPS and LiDAR data; system integration with computer vision and path-planning modules.</li>
+          <li>Coordination of a Driverless Formula Student team (Supaero) using scrum methodology; estimation algorithms with EKF and neural networks.</li>
+          <li>Fusion of IMU, GPS and LiDAR; integration with computer vision and path-planning.</li>
         </ul>
       </div>
 
@@ -198,7 +38,7 @@
         </div>
         <ul class="clean">
           <li>Developed a private VS Code extension for automatic code refactoring powered by AI.</li>
-          <li>Applied LoRA fine-tuning for LLMs, RAG, multi-agent systems, and diffusion models for synthetic data generation.</li>
+          <li>Applied LoRA fine-tuning for LLMs, RAG, multi-agent systems, and diffusion models for synthetic data.</li>
           <li>Improved the F1 score of a published paper on God Class detection (0.53 → 0.58).</li>
         </ul>
       </div>
@@ -213,7 +53,6 @@
       </div>
     </section>
 
-    <!-- === Education === -->
     <section id="education">
       <h2>Education</h2>
       <div class="grid-2">
@@ -264,7 +103,6 @@
       </div>
     </section>
 
-    <!-- === Skills === -->
     <section id="skills">
       <h2>Skills</h2>
       <ul class="clean">
@@ -274,7 +112,6 @@
       </ul>
     </section>
 
-    <!-- === Awards === -->
     <section id="awards">
       <h2>Awards & Others</h2>
       <ul class="clean">
@@ -288,16 +125,6 @@
     </section>
   </div>
 
-  <!-- Footer logos -->
-  <div class="logos-footer">
-    <div class="logos-container">
-      <a href="https://ens-paris-saclay.fr/" target="_blank"><img src="media/logos/ensalpha.png" alt="ENS Paris-Saclay"></a>
-      <a href="https://www.master-mva.com/" target="_blank"><img src="media/logos/mvaalpha.png" alt="Master MVA"></a>
-      <a href="https://www.univ-toulouse.fr/" target="_blank"><img src="media/logos/utoulousealpha.png" alt="Université de Toulouse"></a>
-      <a href="https://tlseracing.fr/" target="_blank"><img src="media/logos/tlsealpha.png" alt="TLS’e Racing"></a>
-      <a href="https://www.upsilon-toulouse.fr/" target="_blank"><img src="media/logos/upsialpha.png" alt="Upsilon Student Tech Consulting"></a>
-      <a href="https://www.infotel.com/" target="_blank"><img src="media/logos/infotelalpha.png" alt="Infotel Consulting"></a>
-    </div>
-  </div>
+  <div data-include="components/footer.html"></div>
 </body>
 </html>

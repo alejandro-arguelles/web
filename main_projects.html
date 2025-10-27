@@ -10,177 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg:#181a1f; --fg:#e9e9ee; --muted:#b8bcc7; --place:#a9abb1; --line:#2b2f39;
-      --accent1:#7a5cff; --accent2:#9178ff; --accent3:#c07bff; --orange:#ffbf7a;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--fg);
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height:1.45; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-
-    .wrap{max-width:1100px; margin:0 auto; padding:48px 24px 72px;}
-
-    /* Top navigation */
-    .top-nav{
-      width:100%; display:flex; justify-content:center; gap:32px;
-      padding:20px 0; border-bottom:0px solid var(--line); background:transparent;
-    }
-    .top-nav a{
-      font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
-      color:#fff; text-decoration:none; transition:color .25s ease;
-    }
-    .top-nav a:hover{ color:var(--accent2); }
-
-    /* Gradient page title */
-    .gradient-title{
-      font-family:"JetBrains Mono",monospace;
-      font-weight:800; font-size:clamp(30px,5vw,42px);
-      margin-top:32px; margin-bottom:12px;
-      background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-
-    /* Section headings */
-    h2{
-      font-family:"JetBrains Mono", monospace; font-weight:700;
-      font-size:20px; letter-spacing:.14em; color:var(--accent2);
-      margin:18px 0 14px; position:relative;
-    }
-    h2::after{
-      content:""; position:absolute; left:0; bottom:-8px; width:100%; height:1px;
-      background:linear-gradient(90deg,var(--accent2),transparent 60%); opacity:.4;
-    }
-
-    section{ margin-top:28px; padding-top:18px; border-top:1px dashed var(--line); }
-    section:first-of-type{ border-top:none; padding-top:0; }
-
-    /* Clean list with custom bullets */
-    ul.clean{ list-style:none; padding-left:0; margin:10px 0 6px; }
-    ul.clean > li{
-      position:relative; padding-left:18px; margin:8px 0; color:var(--fg);
-    }
-    ul.clean > li::before{
-      content:"•"; position:absolute; left:0; top:-1px;
-      font-size:20px; line-height:1; color:#ffffff; opacity:.9;
-    }
-
-    /* Project blocks */
-    .project{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:22px; align-items:start;
-      margin:28px 0 54px;   /* más espacio entre proyectos */
-    }
-    @media (max-width: 900px){ .project{ grid-template-columns:1fr; } }
-
-    .project h3{
-      margin:0 0 8px; font-size:18px; font-weight:800; font-family:"JetBrains Mono",monospace;
-    }
-    .muted{ color:var(--muted); }
-    .link{ color:#c1bfff; text-decoration:none; border-bottom:1px dashed rgba(193,191,255,.4); }
-    .link:hover{ color:#fff; border-bottom-color:transparent; }
-
-    /* Media styles */
-    figure{ margin:0; }
-    .img-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    @media (max-width: 560px){ .img-row{ grid-template-columns:1fr; } }
-
-    /* Driverless: dos fotos cuadradas y pequeñas */
-    .resp.square{
-      aspect-ratio: 1 / 1;      /* cuadradas */
-      width:100%;
-      object-fit:cover;
-      object-position:center;
-      border-radius:10px; border:1px solid var(--line); display:block;
-      max-width:240px;           /* controla tamaño */
-      margin:0 auto;             /* centra cada imagen en su celda */
-    }
-
-    img.resp{ width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
-    .caption{ font-size:13px; color:var(--muted); margin-top:6px; text-align:center; }
-
-    /* Vídeo (NN visualizer) más pequeño */
-    .resp.vid{
-      max-width:350px; width:100%;
-      border-radius:10px; border:1px solid var(--line); display:block;
-    }
-
-    /* Diagrama del refactorer pequeño */
-    .resp.diag{ max-width:240px; width:100%; display:block; margin:auto; }
-    .figure-center{ display:flex; flex-direction:column; align-items:center; }
-    .figure-center .caption{ text-align:center; max-width:300px; }
-
-    /* Borsuk video: recorte para quitar barras laterales */
-    .vid-crop{
-      width:100%;
-      max-width:520px;
-      height:260px;
-      border-radius:10px; border:1px solid var(--line);
-      overflow:hidden; margin:0 auto;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .vid-crop video{ width:100%; height:100%; object-fit:cover; }
-
-    /* Footer */
-    .logos-footer{
-      width:100%; background:#20232a;
-      border-top:1px solid var(--line);
-      margin-top:32px; padding:26px 0;
-    }
-    .logos-container{
-      max-width:1100px; margin:0 auto; padding:0 24px;
-      display:flex; flex-wrap:wrap; justify-content:center;
-      align-items:center; gap:20px 60px;
-    }
-    .logos-container a{
-      display:inline-flex; opacity:.85;
-      transition:opacity .2s ease, transform .2s ease;
-      will-change:transform;
-    }
-    .logos-container a:hover{ opacity:1; transform:translateY(-3px); }
-    .logos-container img{
-      height:40px; width:auto;
-      filter:grayscale(100%) contrast(1.1) brightness(1.05);
-    }
-
-    /* ===== Mobile-only tweaks ===== */
-    /* 1) Footer logos: 2 columnas x 3 filas SOLO en móvil */
-    @media (max-width: 600px){
-      .logos-container{
-        display:grid;
-        grid-template-columns:repeat(2, minmax(0,1fr));
-        gap:16px;
-        justify-items:center; /* centra cada celda */
-        align-items:center;
-        padding:0 24px;
-      }
-      .logos-container a{
-        width:100%;
-        display:flex; /* asegura centrado del <img> dentro de la celda */
-        justify-content:center;
-      }
-      .logos-container img{ height:36px; } /* un pelín más pequeño en móvil */
-    }
-    
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/includes.js" defer></script>
 </head>
-
 <body>
-  <!-- Top navigation -->
-  <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="main_projects.html">Main Projects</a>
-    <a href="extended_cv.html">Extended CV</a>
-  </nav>
+  <div data-include="components/header.html"></div>
 
   <div class="wrap">
     <div class="gradient-title">Main Projects</div>
 
-    <!-- Currently Working On -->
     <section id="current">
       <h2>Currently Working On</h2>
       <p class="muted" style="max-width:900px;">
@@ -208,7 +46,6 @@
       </ul>
     </section>
 
-    <!-- Projects -->
     <section id="projects">
       <h2>Main projects</h2>
 
@@ -268,13 +105,60 @@
         </div>
       </div>
 
-      <!-- 3) NN Visualizer -->
+      <!-- 3) Video-to-Text SoTA -->
+      <div class="project">
+        <div>
+          <h3>State-of-the-Art Video-to-Text Summarization (Master Survey, 2025)</h3>
+          <p class="muted">
+            Technical survey on <strong>video-to-text summarization</strong>: modular architectures, multimodal models,
+            self-supervised approaches, and evaluation (ROUGE, PRISMA). Review of datasets and open challenges.
+          </p>
+          <div class="meta">
+            <span class="pill">Survey / SoTA Review</span>
+            <span class="pill">Multimodal</span>
+            <span class="pill">Self-supervised</span>
+            <span class="pill">Evaluation & Datasets</span>
+          </div>
+          <p style="margin-top:10px;">
+            <a class="link" href="media/videoToText/Sota.pdf" target="_blank" rel="noopener">Open full PDF →</a>
+          </p>
+        </div>
+        <div>
+          <figure class="figure-center">
+            <img class="resp vid" src="media/videoToText/sota.png" alt="Overview of SoTA methods in video-to-text summarization">
+            <figcaption class="caption">Summary of recent architectures and evaluation methods.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- 4) Borsuk–Ulam -->
+      <div class="project">
+        <div>
+          <h3>Borsuk–Ulam Theorem</h3>
+          <p class="muted">
+            Concise exposition and geometric proof sketches with applications (Brouwer fixed-point, necklace splitting).
+          </p>
+          <p class="muted" style="margin-top:8px;">
+            <a class="link" href="media/borsuk/borsuk.pdf" target="_blank" rel="noopener">Read the Report (PDF) →</a>
+          </p>
+        </div>
+        <div>
+          <figure class="figure-center">
+            <img class="resp vid" src="media/borsuk/simplex.png" alt="Geometric visualization of the Borsuk–Ulam theorem on a simplex">
+            <figcaption class="caption">Geometric illustration on the simplex.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="visualizations">
+      <h2>Visualizing Stuff</h2>
+
       <div class="project">
         <div>
           <h3>Neural Network Decision Boundary Visualizer</h3>
           <p class="muted">
-            Given a neural network mapping from ℝⁿ to ℝ (typically for binary classification), this tool evaluates the model on a 2D slice
-            of the input space ℝⁿ and generates a heatmap that reveals decision boundaries, confidence regions, and internal structure.
+            Tool to inspect a model \( f:\mathbb{R}^n \to \mathbb{R} \) on 2D slices—heatmaps for boundaries and confidence.
           </p>
           <p>
             <a class="link" href="https://github.com/alejandro-arguelles/NN-visualizer" target="_blank" rel="noopener">
@@ -290,16 +174,11 @@
         </div>
       </div>
 
-      <!-- 4) Borsuk–Ulam -->
       <div class="project">
         <div>
-          <h3>Borsuk–Ulam Theorem — Notes & Visualizations</h3>
+          <h3>Visualizing Homotopy on the Cube</h3>
           <p class="muted">
-            Concise exposition and geometric proof sketches of the Borsuk–Ulam theorem, with applications (e.g., Brouwer fixed-point and the
-            necklace splitting problem). Includes a homotopy visualization on the cube.
-          </p>
-          <p class="muted" style="margin-top:8px;">
-            <a class="link" href="media/borsuk/borsuk.pdf" target="_blank" rel="noopener">Read the Report (PDF) →</a>
+            Short visual to illustrate a continuous deformation (homotopy) between maps on a cube-like domain.
           </p>
         </div>
         <div>
@@ -314,16 +193,6 @@
     </section>
   </div>
 
-  <!-- Footer logos -->
-  <div class="logos-footer" role="contentinfo" aria-label="Affiliations and partners">
-    <div class="logos-container">
-      <a href="https://ens-paris-saclay.fr/" target="_blank" rel="noopener"><img src="media/logos/ensalpha.png" alt="ENS Paris-Saclay"></a>
-      <a href="https://www.master-mva.com/" target="_blank" rel="noopener"><img src="media/logos/mvaalpha.png" alt="Master MVA"></a>
-      <a href="https://www.univ-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/utoulousealpha.png" alt="Université de Toulouse"></a>
-      <a href="https://tlseracing.fr/" target="_blank" rel="noopener"><img src="media/logos/tlsealpha.png" alt="TLS’e Racing"></a>
-      <a href="https://www.upsilon-toulouse.fr/" target="_blank" rel="noopener"><img src="media/logos/upsialpha.png" alt="Upsilon Student Tech Consulting"></a>
-      <a href="https://www.infotel.com/" target="_blank" rel="noopener"><img src="media/logos/infotelalpha.png" alt="Infotel Consulting"></a>
-    </div>
-  </div>
+  <div data-include="components/footer.html"></div>
 </body>
 </html>

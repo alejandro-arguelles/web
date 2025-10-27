@@ -1,4 +1,1 @@
-- Poner la seccion visualizing stuff? y poner lo de neural networks boundary y duplicar lo de borsuk ahi poner visualizaciones y en el otro poner algo mas del paper
 - a lo mejor ponerle splines en plan extende cv centrado debajod e un spline y lo mismo con extended cv
-- cambiar la fuente de los titulos del main proyects a la general (cual es?) y no JetBrainsMono
-- meter tambien lo del state of the aart video sin enlace a raport porque es una mierda etc. 
