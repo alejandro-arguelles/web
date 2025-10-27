@@ -22,8 +22,26 @@ body{
   font-family:"JetBrains Mono",monospace; font-weight:600; font-size:15px;
   color:#fff; text-decoration:none; transition:color .25s ease;
 }
+
+/* ===== Ajuste del header en pantallas pequeñas ===== */
+@media (max-width: 699px){
+  .top-nav {
+    flex-wrap: wrap;             /* Permite que los enlaces salten de línea */
+    gap: 20px;                   /* Menor espacio entre ellos */
+    padding: 14px 20px;          /* Márgenes laterales */
+    justify-content: center;     /* Centra todo el grupo */
+  }
+ 
+  .top-nav a {
+    font-size: 13px;             /* Texto más pequeño */
+    text-align: center;          /* Centra el texto de cada link */
+  }
+}
+
 .top-nav a:hover{ color:var(--accent2); }
 .top-nav a.active{ color:var(--accent4); border-bottom:0px dashed rgba(145,120,255,.5); }
+
+
 
 /* ===== Titles & sections ===== */
 /* Headline (JetBrains Mono) — mantiene el degradado */
