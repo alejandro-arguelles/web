@@ -33,7 +33,7 @@ body{
   }
  
   .top-nav a {
-    font-size: 13px;             /* Texto más pequeño */
+    font-size: 10px;             /* Texto más pequeño */
     text-align: center;          /* Centra el texto de cada link */
   }
 }
