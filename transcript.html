@@ -9,12 +9,16 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <style>
-    /* Print-friendly minimal styling (no header/footer) */
-    @page { size: A4; margin: 16mm; }
-    .wrap { padding-top: 24px; }
-    .small { font-size: 13px; color: var(--muted); }
-    .note { margin-top: 6px; }
-    .badge { border:1px solid var(--line); border-radius:999px; padding:2px 8px; font-size:12px; background:rgba(255,255,255,.02); }
+  :root {
+    --accent2: #b285ff; /* Morado principal para headers de tablas */
+  }
+
+  /* Print-friendly minimal styling (no header/footer) */
+  @page { size: A4; margin: 16mm; }
+  .wrap { padding-top: 24px; }
+  .small { font-size: 13px; color: var(--muted); }
+  .note { margin-top: 6px; }
+  .badge { border:1px solid var(--line); border-radius:999px; padding:2px 8px; font-size:12px; background:rgba(255,255,255,.02); }
 
     /* Transcript tables */
     .tbl { width:100%; border-collapse:collapse; margin:10px 0 18px; }
@@ -26,60 +30,6 @@
     .pill { border:1px solid var(--line); padding:2px 8px; border-radius:999px; }
     .sub { color:var(--muted); font-size:12.5px; margin:6px 0 0 0; }
     .sub li { margin:4px 0; }
-
-
-    @media print {
-      /* Que Chrome NO aclare ni cambie colores */
-      html, body {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        background: #0f1116 !important; /* mismo fondo que en pantalla */
-        color: var(--fg) !important;
-      }
-
-      /* Si usas un contenedor, dale fondo oscuro también */
-      .wrap {
-        background: #0f1116 !important;
-        color: var(--fg) !important;
-        box-shadow: none !important; /* sombras no aportan en papel */
-      }
-
-      /* Tablas y bordes en oscuro */
-      .tbl {
-        background: transparent !important;
-      }
-      .tbl th, .tbl td {
-        background: transparent !important;
-        color: var(--fg) !important;
-        border-color: var(--line) !important;
-      }
-
-      /* Títulos/degradados impresos como en pantalla */
-      .gradient-title,
-      .gradient {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-        background: linear-gradient(90deg, var(--accent1), var(--accent3) 40%) !important;
-        -webkit-background-clip: text !important;
-        background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        color: transparent !important;
-      }
-
-      /* Enlaces con el mismo color (sin subrayado extra) */
-      a {
-        color: var(--fg) !important;
-        text-decoration: none !important;
-      }
-
-      /* Evitar que otros estilos globales “blanqueen” al imprimir */
-      * {
-        filter: none !important;
-      }
-    }
-
-
-
   </style>
 </head>
 <body>
