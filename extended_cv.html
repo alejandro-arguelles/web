@@ -12,6 +12,12 @@
 
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/includes.js" defer></script>
+
+  <style>
+    .courses{margin-top:6px;display:flex;flex-wrap:wrap;gap:8px 10px;font-size:11.5px;}
+    .course{border:1px solid #2b2f39;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.02)}
+    .course.purple{color:#9178ff;border-color:rgba(145,120,255,.55);background:rgba(145,120,255,.10);font-weight:700}
+  </style>
 </head>
 <body>
   <div data-include="components/header.html"></div>
@@ -24,7 +30,7 @@
 
       <div class="item">
         <div class="role">Chief of Deep Learning Estimation at Autonomous Racing Car
-          <span class="place">TLS’e Racing Formula Student, 24/25</span>
+          <span class="place">TLS'e Racing Formula Student, 24/25</span>
         </div>
         <ul class="clean">
           <li>Coordination of a Driverless Formula Student team (Supaero) using scrum methodology; estimation algorithms with EKF and neural networks.</li>
@@ -53,53 +59,65 @@
       </div>
     </section>
 
+    <!-- EDUCATION (single column) -->
     <section id="education">
       <h2>Education</h2>
-      <div class="grid-2">
-        <div>
-          <div class="role">Master — MVA Mathematics, Vision & Learning
-            <span class="place">ENS Paris-Saclay, Sep 25 – Apr 26</span>
-          </div>
-          <div class="tags">
-            <div class="t"><span class="dot"></span>Reinforcement Learning</div>
-            <div class="t"><span class="dot"></span>Statistical Learning</div>
-            <div class="t"><span class="dot"></span>Theoretical Foundations of Deep Learning</div>
-            <div class="t"><span class="dot"></span>Geometry Processing</div>
-            <div class="t"><span class="dot"></span>Topological & Geometrical Data Analysis</div>
-            <div class="t"><span class="dot"></span>Multimodal Explainable AI</div>
-            <div class="t"><span class="dot"></span>Diffusion Models for Generative AI</div>
-            <div class="t"><span class="dot"></span>Optimal Transport</div>
-            <div class="t"><span class="dot"></span>Big Random Matrices</div>
-            <div class="t"><span class="dot"></span>LLMs for Code & Proof</div>
-          </div>
-        </div>
 
-        <div>
-          <div class="role">Master — Mathematics & Computer Science for AI
-            <span class="place">Toulouse University, Sep 24 – Mar 25</span>
-          </div>
-          <div class="tags">
-            <div class="t hi"><span class="dot"></span>1st of the promotion (1/9)</div>
-            <div class="t"><span class="dot"></span>Statistics</div>
-            <div class="t"><span class="dot"></span>Advanced Probabilities</div>
-            <div class="t"><span class="dot"></span>Convex Optimization</div>
-            <div class="t"><span class="dot"></span>Deep Learning</div>
-            <div class="t"><span class="dot"></span>Information Retrieval</div>
-            <div class="t"><span class="dot"></span>Advanced Algorithms</div>
-            <div class="t"><span class="dot"></span>Language Theory (Code)</div>
-            <div class="t"><span class="dot"></span>Random Simulation</div>
-            <div class="t"><span class="dot"></span>Signal Processing</div>
-          </div>
+      <!-- MVA -->
+      <div class="item">
+        <div class="role">Master — MVA Mathematics, Vision & Learning
+          <span class="place">ENS Paris-Saclay, Sep 25 – Apr 26</span>
         </div>
+        <div class="courses">
+          <span class="course purple">Reinforcement Learning</span>
+          <span class="course purple">Theoretical Foundations of Deep Learning</span>
+          <span class="course purple">Representation Learning</span>
+          <span class="course">Online Learning</span>
+          <span class="course">Sequential Learning</span>
+          <span class="course">Stopping times</span>
+          <span class="course">Optimal Transport</span>
+          <span class="course">Probabilistic Graphical Models</span>
+          <span class="course">Computer Vision</span>
+          <span class="course">Topological Data Analysis</span>
+          <span class="course">Differential Geometry for Imaging</span>
+          <span class="course">LLMs for Code &amp; Proof</span>
+          <span class="course">Multimodal Explainable AI</span>
+          <span class="course">Statistical Learning</span>
+          <span class="course">Graphs in ML</span>
+          <span class="course">Large-Scale Distributed Optimization</span>
+        </div>
+      </div>
 
-        <div>
-          <div class="role">Degree — Pure Mathematics
-            <span class="place">Toulouse University, 2020 – 2023</span>
-          </div>
-          <ul class="clean">
-            <li><strong class="hi">1st of the promotion (1/93)</strong> in the first year.</li>
-          </ul>
+      <!-- IMA -->
+      <div class="item">
+        <div class="role">Master — Mathematics &amp; Computer Science for AI
+          <span class="place">Toulouse University, Sep 24 – Mar 25</span>
         </div>
+        <ul class="clean">
+          <li><strong>Rank:</strong> <span class="purple">1st of the promotion (1/9)</span></li>
+        </ul>
+        <div class="courses">
+          <span class="course">Statistics</span>
+          <span class="course">Advanced Probabilities</span>
+          <span class="course">Convex Optimization</span>
+          <span class="course">Deep Learning</span>
+          <span class="course">Information Retrieval</span>
+          <span class="course">Advanced Algorithms</span>
+          <span class="course">Language Theory (Code)</span>
+          <span class="course">Random Simulation</span>
+          <span class="course">Signal Processing</span>
+        </div>
+      </div>
+
+      <!-- Degree -->
+      <div class="item">
+        <div class="role">Degree — Pure Mathematics
+          <span class="place">Toulouse University, 2020 – 2023</span> 
+        </div>
+        <ul class="clean">
+          <li><strong class="hi">1st of the promotion (1/93)</strong> in the first year.</li>
+          Solid foundation across theoretical mathematics: <em>analysis, algebra, topology, geometry, combinatorics, graph theory, measure theory, probability</em>.
+        </ul>
       </div>
     </section>
 
@@ -119,7 +137,7 @@
         <li><strong>AVENIR Scholarship:</strong> Dialogue Association (2020), granted to only six students in Spain per year.</li>
         <li><span class="hi"><strong>Finalist:</strong> 56th Spanish Mathematical Olympiad (2020, Phase I).</span></li>
         <li><strong>Complementary Interests:</strong> Cybersecurity, Cryptography, Neuroscience.</li>
-        <li><strong>Hobbies:</strong> Filmmaking, Painting, Photography, Pole Vaulting, Gymnastics, Rubik’s Cube (BL blindfolded).</li>
+        <li><strong>Hobbies:</strong> Filmmaking, Painting, Photography, Pole Vaulting, Gymnastics, Rubik's Cube (BL blindfolded).</li>
         <li><strong>Languages:</strong> English C2 (Cambridge), French B2 (Alliance Française), Spanish (Native).</li>
       </ul>
     </section>
