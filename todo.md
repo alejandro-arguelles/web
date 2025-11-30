@@ -3,4 +3,7 @@
 - poner la captura del spline como iconito
 - poner el cv extended lo del mva en una columna y como en el cv
 - cambiar chief por lead
-
+- Poner para poder descargarse los cvs
+- quitar los footers? en vd no
+- y lo del chief en coche en vd no
+- 
