@@ -1,69 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link rel="icon" type="image/png" href="/media/spline/spline.png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alejandro Argüelles — Home</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap" rel="stylesheet">
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/includes.js" defer></script>
 
   <!-- Estilos para layout del hero + grafo 4D -->
-  <style>
-    /* Hero principal: texto + (foto + grafo) */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 3rem;
-    }
-
-    .hero-text {
-      flex: 1 1 0;
-      max-width: 640px;
-    }
-
-    /* Foto + grafo en fila */
-    .hero-right {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    /* Contenedor del dodecaedro 4D (sin fondo, sólo tamaño) */
-    #poly4d-container {
-      width: 260px;
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      overflow: hidden;
-      background: transparent;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column;
-        gap: 2.5rem;
-      }
-
-      .hero-right {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #poly4d-container {
-        width: 220px;
-      }
-    }
-  </style>
 </head>
+
 <body>
   <div data-include="components/header.html"></div>
 
@@ -71,30 +26,22 @@
     <!-- Hero con texto + foto + grafo 4D -->
     <header class="hero">
       <div class="hero-text">
-        <div class="name">Alejandro ARGÜELLES</div>
-        <div class="subtitle">MSc in <b>Mathematics</b> and <b>AI</b> at</div>
-        <div class="gradient">Mathematics Vision Learning</div>
-        <div class="school">ENS Paris Saclay</div>
+        <h1 class="name-huge">
+          <span class="first">ALEJANDRO</span>
+          <span class="last">ARGUELLES</span>
+        </h1>
+        <div class="subtitle-minimal">MSc in <b>Mathematics</b> and <b>AI</b> at EST PARIS SACLAY</div>
 
-        <p class="intro">
-          I am currently pursuing the <strong>MVA</strong> program at ENS Paris-Saclay and seeking research internship and PhD opportunities in mathematics and artificial intelligence.
-          Interests include <strong>Reinforcement Learning</strong> and <strong>Representation Learning</strong>. (Availability April 2026 →)
+        <p class="intro-minimal">
+          Pursuing <strong>MVA</strong> at ENS Paris-Saclay. Seeking PhD opportunities in <strong>Reinforcement</strong>
+          & <strong>Representation Learning</strong>.
         </p>
 
-        <div class="contacts">
-          <span>Email — <a href="mailto:alejandro.ar.tj@gmail.com">alejandro.ar.tj@gmail.com</a></span>
-          <span>LinkedIn — <a href="https://www.linkedin.com/in/alejandroarguelless/">/in/alejandroarguelless</a></span>
-          <span>Mobile — <a href="tel:+33766209165">+33 07 66 20 91 65</a></span>
+        <div class="contacts-minimal">
+          <a href="mailto:alejandro.ar.tj@gmail.com">mail</a> /
+          <a href="https://www.linkedin.com/in/alejandroarguelless/">linkedin</a> /
+          <a href="tel:+33766209165">phone</a>
         </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="avatar">
-          <img src="media/cara/whitealpha.png" alt="Profile photo of Alejandro">
-        </div>
-
-        <!-- Grafo 4D (dodecaedro doble) -->
-        <div id="poly4d-container"></div>
       </div>
     </header>
 
@@ -164,8 +111,10 @@
     <section id="awards">
       <h2>Awards & Others</h2>
       <ul class="clean">
-        <li><strong>ANITI Scholarship:</strong> Awarded by the Institute of Natural and Artificial Intelligence in Toulouse for the master’s degree.</li>
-        <li><strong>AVENIR Scholarship:</strong> Dialogue Association (2020), granted to only six students in Spain per year.</li>
+        <li><strong>ANITI Scholarship:</strong> Awarded by the Institute of Natural and Artificial Intelligence in
+          Toulouse for the master’s degree.</li>
+        <li><strong>AVENIR Scholarship:</strong> Dialogue Association (2020), granted to only six students in Spain per
+          year.</li>
         <li><span class="hi"><strong>Finalist:</strong> 56th Spanish Mathematical Olympiad (2020, Phase I).</span></li>
         <li><strong>Complementary Interests:</strong> Cybersecurity, Cryptography, Neuroscience.</li>
         <li><strong>Hobbies:</strong> Filmmaking, Painting, Photography, Pole Vaulting.</li>
@@ -176,271 +125,10 @@
 
   <div data-include="components/footer.html"></div>
 
-  <!-- Three.js + dodecaedro 4D (sin fondo, controla ratón global) -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <!-- Scripts removed (Three.js) -->
   <script>
-    (function () {
-      const container = document.getElementById("poly4d-container");
-      if (!container || typeof THREE === "undefined") return;
 
-      function getSize() {
-        const w = container.clientWidth || 260;
-        const h = container.clientHeight || 260;
-        return { w, h };
-      }
-
-      const { w, h } = getSize();
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 200);
-      camera.position.set(0, 0, 8);
-
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(w, h);
-      renderer.setClearColor(0x000000, 0); // transparente
-      container.appendChild(renderer.domElement);
-
-      const light = new THREE.PointLight(0xffffff, 0.9);
-      light.position.set(5, 5, 10);
-      scene.add(light);
-      scene.add(new THREE.AmbientLight(0xffffff, 0.3));
-
-      const polyGroup = new THREE.Group();
-      scene.add(polyGroup);
-
-      // ===== DODECAEDRO 3D BASE =====
-      const phi = (1 + Math.sqrt(5)) / 2;
-      const baseVerts3 = [];
-      const signs = [-1, 1];
-
-      for (let sx of signs)
-        for (let sy of signs)
-          for (let sz of signs)
-            baseVerts3.push({ x: sx, y: sy, z: sz });
-
-      for (let s1 of signs)
-        for (let s2 of signs)
-          baseVerts3.push({ x: 0, y: s1 / phi, z: s2 * phi });
-
-      for (let s1 of signs)
-        for (let s2 of signs)
-          baseVerts3.push({ x: s1 / phi, y: s2 * phi, z: 0 });
-
-      for (let s1 of signs)
-        for (let s2 of signs)
-          baseVerts3.push({ x: s1 * phi, y: 0, z: s2 / phi });
-
-      const dodecaEdgesBase = [
-        [0, 8], [0, 12], [0, 16],
-        [1, 9], [1, 12], [1, 17],
-        [2, 10], [2, 13], [2, 16],
-        [3, 11], [3, 13], [3, 17],
-        [4, 8], [4, 14], [4, 18],
-        [5, 9], [5, 14], [5, 19],
-        [6, 10], [6, 15], [6, 18],
-        [7, 11], [7, 15], [7, 19],
-        [8, 10], [9, 11],
-        [12, 14], [13, 15],
-        [16, 17], [18, 19]
-      ];
-
-      // ===== VÉRTICES 4D: INTERIOR + EXTERIOR =====
-      const vertices4D = [];
-      const innerScale = 0.7;
-      const outerScale = 1.0;
-      const H = 1.0;
-
-      for (let v of baseVerts3) {
-        vertices4D.push({
-          x: v.x * innerScale,
-          y: v.y * innerScale,
-          z: v.z * innerScale,
-          w: -H
-        });
-      }
-      for (let v of baseVerts3) {
-        vertices4D.push({
-          x: v.x * outerScale,
-          y: v.y * outerScale,
-          z: v.z * outerScale,
-          w: +H
-        });
-      }
-
-      const edges = [];
-      for (let [i, j] of dodecaEdgesBase) {
-        edges.push({ i, j });
-        edges.push({ i: i + 20, j: j + 20 });
-      }
-      for (let i = 0; i < baseVerts3.length; i++) {
-        edges.push({ i, j: i + 20 });
-      }
-
-      // ===== ROTACIÓN 4D + PROYECCIÓN =====
-      function rotate4D(v, axw, ayw, azw) {
-        let x = v.x, y = v.y, z = v.z, w = v.w;
-
-        let c = Math.cos(axw), s = Math.sin(axw);
-        let x1 = x * c - w * s;
-        let w1 = x * s + w * c;
-
-        c = Math.cos(ayw); s = Math.sin(ayw);
-        let y1 = y * c - w1 * s;
-        let w2 = y * s + w1 * c;
-
-        c = Math.cos(azw); s = Math.sin(azw);
-        let z1 = z * c - w2 * s;
-        let w3 = z * s + w2 * c;
-
-        return { x: x1, y: y1, z: z1, w: w3 };
-      }
-
-      const perspStrength = 0.25;
-      function project4Dto3D(v4) {
-        const factor = 1 / (1 + perspStrength * v4.w);
-        return new THREE.Vector3(
-          v4.x * factor,
-          v4.y * factor,
-          v4.z * factor
-        );
-      }
-
-      // ===== GEOMETRÍA DE LÍNEAS CON COLORES =====
-      const edgeCount = edges.length;
-      const positionsArray = new Float32Array(edgeCount * 2 * 3);
-      const colorsArray   = new Float32Array(edgeCount * 2 * 3);
-
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute(
-        "position",
-        new THREE.BufferAttribute(positionsArray, 3)
-      );
-      geometry.setAttribute(
-        "color",
-        new THREE.BufferAttribute(colorsArray, 3)
-      );
-
-      const lineMaterial = new THREE.LineBasicMaterial({
-        vertexColors: true,
-        linewidth: 1
-      });
-
-      const lines = new THREE.LineSegments(geometry, lineMaterial);
-      polyGroup.add(lines);
-
-      const innerColor = new THREE.Color("#5b3f9e"); // morado menos oscuro
-      const outerColor = new THREE.Color("#c4b5fd"); // morado claro / accent
-
-      // Orientación inicial: bonito tilt 3D, sin deformación 4D
-      let axw = 0, ayw = 0, azw = 0;
-      let rotX = 3, rotY = 0.1;
-      let lastX = null, lastY = null;
-
-      function updateGeometry() {
-        const proj3 = [];
-        const ws = [];
-
-        // Rotar en 4D, guardar w y proyectar a 3D
-        let wMin = Infinity;
-        let wMax = -Infinity;
-
-        for (let i = 0; i < vertices4D.length; i++) {
-          const r = rotate4D(vertices4D[i], axw, ayw, azw);
-          ws[i] = r.w;
-          if (r.w < wMin) wMin = r.w;
-          if (r.w > wMax) wMax = r.w;
-          proj3[i] = project4Dto3D(r);
-        }
-
-        const wRange = (wMax - wMin) || 1.0;
-
-        // Color dinámico por vértice según w: inner ↔ outer
-        const vertexColors = [];
-        for (let i = 0; i < vertices4D.length; i++) {
-          const t = 1 - (ws[i] - wMin) / wRange; // 0 exterior, 1 interior
-
-          const col = innerColor.clone().lerp(outerColor, t);
-          vertexColors[i] = col;
-        }
-
-        // Posiciones + colores de cada arista
-        let pi = 0;
-        let ci = 0;
-        for (let e = 0; e < edges.length; e++) {
-          const { i, j } = edges[e];
-          const pa = proj3[i];
-          const pb = proj3[j];
-
-          positionsArray[pi++] = pa.x;
-          positionsArray[pi++] = pa.y;
-          positionsArray[pi++] = pa.z;
-          positionsArray[pi++] = pb.x;
-          positionsArray[pi++] = pb.y;
-          positionsArray[pi++] = pb.z;
-
-          const ca = vertexColors[i];
-          const cb = vertexColors[j];
-
-          colorsArray[ci++] = ca.r;
-          colorsArray[ci++] = ca.g;
-          colorsArray[ci++] = ca.b;
-          colorsArray[ci++] = cb.r;
-          colorsArray[ci++] = cb.g;
-          colorsArray[ci++] = cb.b;
-        }
-
-        geometry.attributes.position.needsUpdate = true;
-        geometry.attributes.color.needsUpdate = true;
-      }
-
-      // ===== INTERACCIÓN GLOBAL (ratón en toda la página) =====
-      window.addEventListener("mousemove", e => {
-        const x = e.clientX;
-        const y = e.clientY;
-
-        if (lastX === null) {
-          lastX = x;
-          lastY = y;
-          return;
-        }
-        const dx = x - lastX;
-        const dy = y - lastY;
-        lastX = x;
-        lastY = y;
-
-        rotY += dx * 0.0012;
-        rotX += dy * 0.0012;
-
-        axw += dx * 0.002;
-        ayw += dy * 0.002;
-        azw += (dx - dy) * 0.001;
-      });
-
-      window.addEventListener("wheel", e => {
-        camera.position.z += e.deltaY * 0.003;
-        camera.position.z = Math.max(4, Math.min(18, camera.position.z));
-      });
-
-      window.addEventListener("resize", () => {
-        const { w, h } = getSize();
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w, h);
-      });
-
-      function animate() {
-        requestAnimationFrame(animate);
-        polyGroup.rotation.x = rotX;
-        polyGroup.rotation.y = rotY;
-        updateGeometry();
-        renderer.render(scene, camera);
-      }
-
-      updateGeometry();
-      animate();
-    })();
   </script>
 </body>
-</html>
 
+</html>
