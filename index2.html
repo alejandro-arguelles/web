@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -17,6 +17,34 @@
 
   <!-- Estilos para layout del hero + grafo 4D -->
   <style>
+    body {
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    /* Top navigation minimalista */
+    .top-nav {
+      display: flex !important;
+      gap: 2.5rem;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid #eaeaea;
+      margin-bottom: 3rem;
+    }
+    .top-nav a {
+      color: #666;
+      font-weight: 500;
+      transition: color 0.2s, border-color 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+    .top-nav a:hover {
+      color: #000;
+      text-decoration: none;
+      border-color: #000;
+    }
+
     /* Hero principal: texto + (foto + grafo) */
     .hero {
       display: flex;
@@ -77,8 +105,8 @@
         <div class="school">ENS Paris Saclay</div>
 
         <p class="intro">
-          I am currently pursuing the <strong>MVA</strong> program at ENS Paris-Saclay and seeking research internship and PhD opportunities in mathematics and artificial intelligence.
-          Interests include <strong>Reinforcement Learning</strong> and <strong>Representation Learning</strong>. (Availability April 2026 →)
+          I am currently a student in the <strong>MVA</strong> program at ENS Paris-Saclay, seeking PhD opportunities in mathematics and artificial intelligence.
+          My main interests include <strong>Reinforcement Learning</strong> and <strong>Game Theory</strong> applied to agents.
         </p>
 
         <div class="contacts">
@@ -89,10 +117,6 @@
       </div>
 
       <div class="hero-right">
-        <div class="avatar">
-          <img src="media/cara/whitealpha.png" alt="Profile photo of Alejandro">
-        </div>
-
         <!-- Grafo 4D (dodecaedro doble) -->
         <div id="poly4d-container"></div>
       </div>
@@ -101,6 +125,18 @@
     <div class="two-cols">
       <section id="experience">
         <h2>Experience</h2>
+
+        <div class="item">
+          <div class="role">Research Intern
+            <span class="place">Criteo & Inria (Thoth team), Apr 26 – Present</span>
+          </div>
+          <div class="meta">
+            <span class="pill">Multi-Agent RL & Game Theory</span>
+            <span class="pill">Theoretical Analysis of Asynchronous/Delayed Rewards</span>
+            <span class="pill">LLM Post-Training (RLHF, RLAIF, GRPO)</span>
+            <span class="pill">Supervised by P. Mertikopoulous, P. Gaillard & T. Rahier</span>
+          </div>
+        </div>
 
         <div class="item">
           <div class="role">Chief of Deep Learning Estimation — Driverless FS
@@ -173,8 +209,6 @@
       </ul>
     </section>
   </div>
-
-  <div data-include="components/footer.html"></div>
 
   <!-- Three.js + dodecaedro 4D (sin fondo, controla ratón global) -->
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
