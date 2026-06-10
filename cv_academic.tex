@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{article}
+\documentclass[9pt,a4paper]{extarticle}
 
 % ---------- Basics ----------
 \usepackage[margin=1.8cm]{geometry}
@@ -14,7 +14,7 @@
 
 % ---------- Section style (underline) ----------
 \newcommand{\cvsection}[1]{%
-  \vspace{10pt}%
+  \vspace{5pt}%
   {\large\textbf{#1}}\\[-4pt]%
   \rule{\linewidth}{0.6pt}\vspace{2pt}%
 }
@@ -33,7 +33,36 @@ Phone: +33\,7\,66\,20\,91\,65 \\
 
 \vspace{8pt}
 
-M.Sc. candidate in \textbf{Mathematics \& AI} at \textbf{ENS Paris--Saclay (MVA, Mathematics, Vision, Learning)}, seeking research internships and PhD opportunities in \textbf{Mathematics} and \textbf{Machine Learning}. My main interests include \textbf{Reinforcement Learning}, \textbf{Representation Learning}, and related areas. \textit{Available from April 2026.}
+M.Sc. candidate in \textbf{Mathematics \& AI} at \textbf{ENS Paris--Saclay (MVA, Mathematics, Vision, Learning)}, seeking opportunities in \textbf{Mathematics} and \textbf{Machine Learning}. My main interests include \textbf{Reinforcement Learning} and \textbf{Game Theory} applied to agents.
+
+% ========= Experience =========
+\cvsection{Experience}
+
+\textbf{Research Intern --- Criteo \& Inria (Thoth team)}, \hfill Apr 2026 -- Present\\
+Supervised by Panayotis Mertikopoulous, Pierre Gaillard, and Thibaud Rahier
+\begin{itemize}
+  \item Theoretical analysis of multi-agent reinforcement learning with asynchronous and delayed rewards in potential and zero-sum games.
+  \item LLM post-training, including RLHF, RLAIF, and GRPO-style methods.
+\end{itemize}
+
+\textbf{Deep Learning Estimation Lead -- Driverless Formula Student Team}, TLS’e Racing, \hfill Sep 2024 -- Aug 2025
+\begin{itemize}
+  \item Estimation pipelines combining Extended Kalman Filters with learned estimators; close integration with Computer Vision and Path Planning.
+  \item FSUK 2025: Static events overall 13/56.
+\end{itemize}
+
+\textbf{Automatic Code Refactoring with AI --- Intern}, Infotel Consulting \hfill Mar 2025 -- Aug 2025
+\begin{itemize}
+  \item Designed and implemented a private VS Code extension for automated refactoring with LLMs (LoRA fine-tuning, RAG, multi-agent orchestration).
+  \item Synthetic data via diffusion models; improved a published \emph{God Class} detector (F1 from 0.53 to 0.58).
+\end{itemize}
+
+\textbf{Student Consultant}, Upsilon Student Tech Consulting \hfill Sep 2022 - May 2023
+\begin{itemize}
+  \item Communication strategies and visual assets for clients and partners.
+\end{itemize}
+
+\vspace{6pt}
 
 % ========= Education =========
 \cvsection{Education}
@@ -67,27 +96,6 @@ Large-Scale Distributed Optimization.
 Measure Theory 18.02/20 (rank 1/78);\quad Complex Analysis I 18.5/20 (rank 1/30);\quad Topology 17/20 (rank 3/88),\quad
 Information Theory 18.16/20 (rank 1/74);
 
-
-% ========= Experience =========
-\cvsection{Experience}
-
-\textbf{Deep Learning Estimation Lead -- Driverless Formula Student Team}, TLS’e Racing, \hfill Sep 2024 -- Aug 2025
-\begin{itemize}
-  \item Estimation pipelines combining Extended Kalman Filters with learned estimators; close integration with Computer Vision and Path Planning.
-  \item FSUK 2025: Static events overall 13/56.
-\end{itemize}
-
-\textbf{Automatic Code Refactoring with AI --- Intern}, Infotel Consulting \hfill Mar 2025 -- Aug 2025
-\begin{itemize}
-  \item Designed and implemented a private VS Code extension for automated refactoring with LLMs (LoRA fine-tuning, RAG, multi-agent orchestration).
-  \item Synthetic data via diffusion models; improved a published \emph{God Class} detector (F1 from 0.53 to 0.58).
-\end{itemize}
-
-\textbf{Student Consultant}, Upsilon Student Tech Consulting \hfill Sep 2022 - May 2023
-\begin{itemize}
-  \item Communication strategies and visual assets for clients and partners.
-\end{itemize}
-
 % ========= Awards / Skills / Others =========
 \cvsection{Awards \& Honors}
 ANITI Scholarship (Artificial \& Natural Intelligence Toulouse Institute);\;
@@ -96,7 +104,7 @@ AVENIR Scholarship (2020, Dialogue Association);\;
 
 \cvsection{Skills}
 \textbf{Programming:} Python, C/C++, JavaScript, R, OCaml, Coq.\\
-\textbf{ML/Tools:} PyTorch, TensorFlow, scikit-learn, NumPy, Pandas, Matplotlib, Hugging Face, LangChain, SCIP.\\
+\textbf{ML/Tools:} PyTorch, JAX, Triton, scikit-learn, NumPy, Pandas, Matplotlib, Hugging Face, LangChain, SCIP.\\
 \textbf{Soft skills:} hard curiosity, tenacity, creativity.\\
 \textbf{Workflow:} Git, VS Code, Linux; Scrum, collaborative integration.
 
@@ -106,9 +114,7 @@ AVENIR Scholarship (2020, Dialogue Association);\;
 \textbf{Hobbies:} Filmmaking, Painting, Photography, Pole Vaulting, Gymnastics, Rubik's Cube (Blindfolded).
 
 \smallskip
-\smallskip
-\smallskip
-\smallskip
+
 
 \textit{For more information and projects, visit my website:} \href{https://alejandro-arguelles.github.io/web}{\texttt{alejandro-arguelles.github.io/web}}
 
