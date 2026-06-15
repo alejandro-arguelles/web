@@ -65,7 +65,7 @@ body{
   display:inline-block;
   font-family:"Inter", sans-serif;  /* ← aquí mantenemos Inter */
   font-weight:800;
-  font-size:clamp(28px,4.8vw,30px);
+  font-size:19px;
   line-height:1.1;
   margin-top:8px;
   background:linear-gradient(90deg,var(--accent1),var(--accent3) 40%);
